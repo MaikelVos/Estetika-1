@@ -3,6 +3,8 @@ package nl.seventa.estetika;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import nl.seventa.estetika.domain.MovieReview;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
