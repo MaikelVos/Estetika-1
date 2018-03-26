@@ -8,33 +8,35 @@ import java.util.UUID;
  */
 
 public class Movie {
-    private UUID movieId;
+    private int movieId;
     private String title;
     private String genre;
     private int pegi;
     private String description;
     private String duration;
+    private String url;
     private ArrayList<MovieReview> reviews;
 
     public Movie() {
     }
 
-    public Movie(String movieId, String title, String genre, int pegi, String description, String duration, ArrayList<MovieReview> reviews) {
-        this.movieId = UUID.fromString(movieId);
+    public Movie(int movieId, String title, String genre, int pegi, String description, String duration, ArrayList<MovieReview> reviews, String url) {
+        this.movieId = movieId;
         this.title = title;
         this.genre = genre;
         this.pegi = pegi;
         this.description = description;
         this.duration = duration;
         this.reviews = reviews;
+        this.url = url;
     }
 
-    public UUID getMovieId() {
+    public int getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(String movieId) {
-        this.movieId = UUID.fromString(movieId);
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
     }
 
     public String getTitle() {
@@ -75,6 +77,14 @@ public class Movie {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public ArrayList<MovieReview> getReviews() {
