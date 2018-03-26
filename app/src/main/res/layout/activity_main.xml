@@ -7,6 +7,7 @@
     tools:context="nl.seventa.estetika.MainActivity">
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -14,5 +15,73 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/overviewOverlayIV"
+        android:layout_width="170dp"
+        android:layout_height="230dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/recentOverlayIV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/overviewIV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="@+id/overviewOverlayIV"
+        app:layout_constraintStart_toStartOf="@+id/overviewOverlayIV"
+        app:layout_constraintTop_toTopOf="@+id/overviewOverlayIV"
+        app:srcCompat="@drawable/ic_home" />
+
+    <TextView
+        android:id="@+id/overviewTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/home_overview"
+        app:layout_constraintBottom_toBottomOf="@+id/overviewOverlayIV"
+        app:layout_constraintEnd_toEndOf="@+id/overviewOverlayIV"
+        app:layout_constraintStart_toStartOf="@+id/overviewOverlayIV"
+        app:layout_constraintTop_toBottomOf="@+id/overviewIV" />
+
+    <ImageView
+        android:id="@+id/recentOverlayIV"
+        android:layout_width="170dp"
+        android:layout_height="230dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/recentIV"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/recentOverlayIV"
+        app:layout_constraintStart_toStartOf="@+id/recentOverlayIV"
+        app:layout_constraintTop_toTopOf="@+id/recentOverlayIV"
+        app:srcCompat="@drawable/ic_history" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/home_recentlyviewed"
+        app:layout_constraintBottom_toBottomOf="@+id/recentOverlayIV"
+        app:layout_constraintEnd_toEndOf="@+id/recentOverlayIV"
+        app:layout_constraintStart_toStartOf="@+id/recentIV"
+        app:layout_constraintTop_toBottomOf="@+id/recentIV" />
 
 </android.support.constraint.ConstraintLayout>

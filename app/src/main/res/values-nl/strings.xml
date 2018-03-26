@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name">Estetika</string>
     <string name="language_filter">nl-NL</string>
+    <string name="home_overview">Overzicht</string>
+    <string name="home_recentlyviewed">Recent Gezien</string>
+    <string name="home_mytickets">Mijn Tickets</string>
+    <string name="home_contact">Contact</string>
 </resources>

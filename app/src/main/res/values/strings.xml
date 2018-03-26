@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Estetika</string>
+    <string name="home_overview">Overview</string>
     <string name="language_filter">en-EN</string>
     <string name="title" translatable="false">Title</string>
     <string name="duration" translatable="false">Duration</string>
     <string name="pegi" translatable="false">PEGI</string>
+    <string name="home_recentlyviewed">Recently Viewed</string>
+    <string name="home_mytickets">My Tickets</string>
+    <string name="home_contact">Contact</string>
 </resources>
