@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 public class MovieDetailActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
+    private int id;
 
     public static final String ID_INSTANCE = "Id";
 
@@ -16,5 +17,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
+
+        intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        id = bundle.getInt(ID_INSTANCE);
     }
 }
