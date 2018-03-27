@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.seventa.estetika.async.MovieAsyncTask;
+import nl.seventa.estetika.async.MovieListAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
 import nl.seventa.estetika.domain.Movie;
 
@@ -66,7 +67,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
     private void fillMovies(){
         String filter = getResources().getString(R.string.language_filter);
         String url = "http://api.themoviedb.org/3/discover/movie?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
-        MovieAsyncTask task = new MovieAsyncTask(this);
+        MovieListAsyncTask task = new MovieListAsyncTask(this);
         Log.i(TAG, filter);
         task.execute(url);
     }

@@ -8,4 +8,9 @@
     <string name="home_recentlyviewed">Recently Viewed</string>
     <string name="home_mytickets">My Tickets</string>
     <string name="home_contact">Contact</string>
+    <string name="title_description">Title:</string>
+    <string name="pegi_description">Rating:</string>
+    <string name="genre_description">Genre:</string>
+    <string name="genre">Genre</string>
+    <string name="duration_desription">Duration:</string>
 </resources>

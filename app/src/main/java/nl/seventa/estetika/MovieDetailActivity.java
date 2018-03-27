@@ -4,10 +4,29 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class MovieDetailActivity extends AppCompatActivity {
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+import nl.seventa.estetika.async.MovieAsyncTask;
+import nl.seventa.estetika.async.MovieListener;
+import nl.seventa.estetika.domain.Movie;
+
+public class MovieDetailActivity extends AppCompatActivity implements MovieListener {
     private final String TAG = this.getClass().getSimpleName();
     private int id;
+    private String pegi;
+
+    private ImageView image;
+    private TextView title;
+    private TextView genre;
+    private TextView pegiTextView;
+    private TextView duration;
+    private TextView description;
 
     public static final String ID_INSTANCE = "Id";
 
@@ -19,5 +38,35 @@ public class MovieDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = bundle.getInt(ID_INSTANCE);
+
+
+        image = findViewById(R.id.movieDetailImageView);
+        title = findViewById(R.id.movieDetailTitleTextView);
+        genre = findViewById(R.id.movieDetailGenreTextView);
+        pegiTextView = findViewById(R.id.movieDetailPegiTextView);
+        duration = findViewById(R.id.movieDetailDurationTextView);
+        description = findViewById(R.id.movieDetailDescriptionTextView);
+
+        getMovie();
+    }
+
+    public void getMovie(){
+        String filter = getResources().getString(R.string.language_filter);
+        String url = "http://api.themoviedb.org/3/movie/" + id + "?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
+        MovieAsyncTask task = new MovieAsyncTask(this);
+        task.execute(url);
+    }
+
+    @Override
+    public void onMovieListener(Movie movie) {
+        Log.i(TAG, "Got movie: " + id + " from API");
+
+        Picasso.with(this).load(movie.getUrl()).into(image);
+        title.setText(movie.getTitle());
+        genre.setText(movie.getGenre());
+        //pegiTextView.setText(movie.getPegi());
+        duration.setText(movie.getDuration() + " minutes");
+        description.setText(movie.getDescription());
+
     }
 }

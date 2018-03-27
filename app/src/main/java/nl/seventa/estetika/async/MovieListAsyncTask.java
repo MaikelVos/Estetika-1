@@ -19,13 +19,14 @@ import java.net.URLConnection;
 import nl.seventa.estetika.domain.Movie;
 
 /**
- * Created by ywillems on 27-3-2018.
+ * Created by ywillems on 26-3-2018.
  */
-public class MovieAsyncTask extends AsyncTask<String, Void, String> {
+
+public class MovieListAsyncTask extends AsyncTask<String, Void, String> {
     private MovieListener listener = null;
     private final String TAG = this.getClass().getSimpleName();
 
-    public MovieAsyncTask(MovieListener listener) {
+    public MovieListAsyncTask(MovieListener listener) {
         this.listener = listener;
     }
 
@@ -93,31 +94,23 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
             return;
         }
 
-        JSONObject object;
+        JSONObject jsonObject;
         try {
             // Top level json object
-             object = new JSONObject(response);
+            jsonObject = new JSONObject(response);
+
+            // Get all movies and start looping
+            JSONArray movies = jsonObject.getJSONArray("results");
+            for (int idx = 0; idx < movies.length(); idx++) {
+                // array level objects and get user
+                JSONObject object = movies.getJSONObject(idx);
 
                 //Get movie id
                 int id = object.getInt("id");
                 String title = object.getString("title");
 
-                Log.i(TAG, "-----------" + title + "------------");
-
-                //get genres
-                JSONArray genres = object.getJSONArray("genres");
-                JSONObject genreObject = (JSONObject) genres.get(0);
-
-                String genre = genreObject.getString("name");
-
-                //Get duration
-                String duration = Integer.toString(object.getInt("runtime"));
-
                 //Get image source
                 String imgUrl = "https://image.tmdb.org/t/p/w185" + object.getString("poster_path");
-
-                //Get description
-                String description = object.getString("overview");
 
                 Log.i(TAG, "Got movie " + id);
 
@@ -126,12 +119,11 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
                 movie.setMovieId(id);
                 movie.setTitle(title);
                 movie.setUrl(imgUrl);
-                movie.setDuration(duration);
-                movie.setGenre(genre);
-                movie.setDescription(description);
+
 
                 //Callback with new movie data
                 listener.onMovieListener(movie);
+            }
         } catch (JSONException ex) {
             Log.e(TAG, "onPostExecute JSONException " + ex.getLocalizedMessage());
         }
@@ -166,3 +158,4 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
         return sb.toString();
     }
 }
+
