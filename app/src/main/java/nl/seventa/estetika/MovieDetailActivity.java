@@ -11,14 +11,12 @@ public class MovieDetailActivity extends AppCompatActivity {
 
     public static final String ID_INSTANCE = "Id";
 
-    private Intent intent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
-        intent = getIntent();
+        Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = bundle.getInt(ID_INSTANCE);
     }
