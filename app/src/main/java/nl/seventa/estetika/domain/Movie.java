@@ -1,5 +1,6 @@
 package nl.seventa.estetika.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -7,7 +8,7 @@ import java.util.UUID;
  * Created by ywillems on 26-3-2018.
  */
 
-public class Movie {
+public class Movie implements Serializable{
     private int movieId;
     private String title;
     private String genre;

@@ -64,8 +64,10 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
 
     //Creates and executes an Async task to fetch data from the API
     private void fillMovies(){
-        String url = "http://api.themoviedb.org/3/discover/movie?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + R.string.language_filter;
+        String filter = getResources().getString(R.string.language_filter);
+        String url = "http://api.themoviedb.org/3/discover/movie?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
         MovieAsyncTask task = new MovieAsyncTask(this);
+        Log.i(TAG, filter);
         task.execute(url);
     }
 
