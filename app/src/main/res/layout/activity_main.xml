@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearlayout1"
         android:layout_width="fill_parent"
-        android:layout_height="161dp"
+        android:layout_height="148dp"
         android:orientation="horizontal"
         android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_history" />
+            app:srcCompat="@drawable/ic_ticket_alt" />
 
     </LinearLayout>
 
@@ -37,15 +37,12 @@
         android:id="@+id/linearlayout2"
         android:layout_width="fill_parent"
         android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout1"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout1">
 
         <TextView
             android:id="@+id/mainOverviewTextView"
@@ -62,10 +59,37 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/home_recentlyviewed"
+            android:text="@string/home_mytickets"
             android:textAlignment="center"
             tools:layout_editor_absoluteX="103dp"
             tools:layout_editor_absoluteY="246dp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/mainContactImageView"
+        android:layout_width="119dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_phone" />
+
+    <TextView
+        android:id="@+id/mainContactTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/home_contact"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/mainContactImageView"
+        app:layout_constraintEnd_toEndOf="@+id/mainContactImageView"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/mainContactImageView"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
