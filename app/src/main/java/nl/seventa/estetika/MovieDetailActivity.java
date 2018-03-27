@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MovieDetailActivity extends AppCompatActivity {
-    private final String TAG = this.getLocalClassName();
+    private final String TAG = this.getClass().getSimpleName();
 
     public static final String ID_INSTANCE = "Id";
 

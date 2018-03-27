@@ -21,7 +21,7 @@ import nl.seventa.estetika.async.MovieListener;
 import nl.seventa.estetika.domain.Movie;
 
 public class MovieListActivity extends AppCompatActivity implements MovieListener{
-    private final String TAG = this.getLocalClassName();
+    private final String TAG = this.getClass().getSimpleName();
 
     private ListView listView;
     private ArrayList<Movie> movies = new ArrayList<>();

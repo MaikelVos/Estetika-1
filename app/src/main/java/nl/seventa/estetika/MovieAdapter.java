@@ -23,7 +23,7 @@ import nl.seventa.estetika.domain.Movie;
  */
 
 public class MovieAdapter extends ArrayAdapter {
-    private final String TAG = this.toString();
+    private final String TAG = this.getClass().getSimpleName();
     private List<Movie> movies = new ArrayList();
     private TextView movieItemTitleTextView;
     private ImageView movieItemImageView;
