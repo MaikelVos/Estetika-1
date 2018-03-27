@@ -11,7 +11,6 @@ public class MovieDetailActivity extends AppCompatActivity {
     public static final String ID_INSTANCE = "Id";
 
     private Intent intent;
-    private String imageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

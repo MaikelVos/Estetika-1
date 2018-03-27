@@ -11,7 +11,7 @@ public class Movie {
     private int movieId;
     private String title;
     private String genre;
-    private int pegi;
+    private String pegi;
     private String description;
     private String duration;
     private String url;
@@ -20,7 +20,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String genre, int pegi, String description, String duration, ArrayList<MovieReview> reviews, String url) {
+    public Movie(int movieId, String title, String genre, String pegi, String description, String duration, ArrayList<MovieReview> reviews, String url) {
         this.movieId = movieId;
         this.title = title;
         this.genre = genre;
@@ -55,11 +55,11 @@ public class Movie {
         this.genre = genre;
     }
 
-    public int getPegi() {
+    public String getPegi() {
         return pegi;
     }
 
-    public void setPegi(int pegi) {
+    public void setPegi(String pegi) {
         this.pegi = pegi;
     }
 

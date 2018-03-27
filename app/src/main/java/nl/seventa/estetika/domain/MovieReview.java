@@ -7,10 +7,21 @@ import java.util.UUID;
  */
 
 public class MovieReview extends Review {
+    private Movie movie;
+
     public MovieReview() {
     }
 
-    public MovieReview(String reviewId, String author, String text) {
+    public MovieReview(String reviewId, String author, String text, Movie movie) {
         super(reviewId, author, text);
+        this.movie = movie;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }
