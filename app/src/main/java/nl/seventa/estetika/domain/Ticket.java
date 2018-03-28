@@ -10,12 +10,20 @@ public class Ticket {
     private UUID ticketId;
     private Movie movie;
     private Seat assignedSeat;
+    private double price;
 
     public Ticket() {
     }
 
-    public Ticket(String ticketId, Movie movie, Seat assignedSeat) {
-        this.ticketId = UUID.fromString(ticketId);
+    public Ticket(UUID ticketId, Movie movie, Seat assignedSeat, double price) {
+        this.ticketId = ticketId;
+        this.movie = movie;
+        this.assignedSeat = assignedSeat;
+        this.price = price;
+    }
+
+    public Ticket(Movie movie, Seat assignedSeat) {
+        this.ticketId = UUID.randomUUID();
         this.movie = movie;
         this.assignedSeat = assignedSeat;
     }

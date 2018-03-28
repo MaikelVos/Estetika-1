@@ -18,10 +18,6 @@ import java.net.URLConnection;
 
 import nl.seventa.estetika.domain.Movie;
 
-/**
- * Created by ywillems on 26-3-2018.
- */
-
 public class MovieListAsyncTask extends AsyncTask<String, Void, String> {
     private MovieListener listener = null;
     private final String TAG = this.getClass().getSimpleName();

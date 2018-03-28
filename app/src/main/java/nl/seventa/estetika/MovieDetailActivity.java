@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
     private TextView pegiTextView;
     private TextView duration;
     private TextView description;
+    private Button reviewButton;
 
     public static final String ID_INSTANCE = "Id";
 
@@ -46,6 +49,16 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         pegiTextView = findViewById(R.id.movieDetailPegiTextView);
         duration = findViewById(R.id.movieDetailDurationTextView);
         description = findViewById(R.id.movieDetailDescriptionTextView);
+        reviewButton = findViewById(R.id.movieDetailReviewButton);
+
+        reviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MovieDetailReviewActivity.class);
+                intent.putExtra(ID_INSTANCE, id);
+                startActivity(intent);
+            }
+        });
 
         getMovie();
     }

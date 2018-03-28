@@ -18,9 +18,6 @@ import java.net.URLConnection;
 
 import nl.seventa.estetika.domain.Movie;
 
-/**
- * Created by ywillems on 27-3-2018.
- */
 public class MovieAsyncTask extends AsyncTask<String, Void, String> {
     private MovieListener listener = null;
     private final String TAG = this.getClass().getSimpleName();
@@ -32,7 +29,7 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
 
-        InputStream inputStream = null;
+        InputStream inputStream;
         int responsCode = -1;
         // The URL recieved through .execute()
         String personUrl = strings[0];
@@ -87,7 +84,7 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
         Log.i(TAG, "onPostExecute " + response);
 
         // Check of er een response is
-        if (response == null || response == "") {
+        if (response == null || response.equals("")) {
             Log.e(TAG, "This response empty YEET!!!");
             return;
         }
@@ -95,26 +92,26 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
         JSONObject object;
         try {
             // Top level json object
-             object = new JSONObject(response);
+            object = new JSONObject(response);
 
-                //Get movie id
-                int id = object.getInt("id");
-                String title = object.getString("title");
+            //Get movie id
+            int id = object.getInt("id");
+            String title = object.getString("title");
 
                 //get genres
                 JSONArray genres = object.getJSONArray("genres");
                 JSONObject genreObject = (JSONObject) genres.get(0);
 
-                String genre = genreObject.getString("name");
+            String genre = genreObject.getString("name");
 
-                //Get duration
-                String duration = Integer.toString(object.getInt("runtime"));
+            //Get duration
+            String duration = Integer.toString(object.getInt("runtime"));
 
-                //Get image source
-                String imgUrl = "https://image.tmdb.org/t/p/w185" + object.getString("poster_path");
+            //Get image source
+            String imgUrl = "https://image.tmdb.org/t/p/w185" + object.getString("poster_path");
 
-                //Get description
-                String description = object.getString("overview");
+            //Get description
+            String description = object.getString("overview");
 
                 // Create new Movie object
                 Movie movie = new Movie();
@@ -125,8 +122,8 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
                 movie.setGenre(genre);
                 movie.setDescription(description);
 
-                //Callback with new movie data
-                listener.onMovieListener(movie);
+            //Callback with new movie data
+            listener.onMovieListener(movie);
         } catch (JSONException ex) {
             Log.e(TAG, "onPostExecute JSONException " + ex.getLocalizedMessage());
         }
