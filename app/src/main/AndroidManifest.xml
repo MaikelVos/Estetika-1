@@ -28,6 +28,7 @@
             android:name=".MovieDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity android:name=".MovieDetailReviewActivity"></activity>
+        <activity android:name=".ContactActivity"></activity>
     </application>
 
 </manifest>
