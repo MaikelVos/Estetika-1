@@ -13,4 +13,10 @@
     <string name="genre_description">Genre:</string>
     <string name="genre">Genre</string>
     <string name="duration_desription">Duration:</string>
+    <string name="contact_name">Cinema Estetika</string>
+    <string name="address_country">The Netherlands</string>
+    <string name="address_street_no">Lovendijkstraat 61</string>
+    <string name="address_postal_city">4818AJ Breda</string>
+    <string name="contact_phone">088 525 7500</string>
+    <string name="reviews">Reviews</string>
 </resources>

@@ -6,4 +6,15 @@
     <string name="home_recentlyviewed">Recent Gezien</string>
     <string name="home_mytickets">Mijn Tickets</string>
     <string name="home_contact">Contact</string>
+    <string name="title_description">"Titel: "</string>
+    <string name="pegi_description">"Waardering: "</string>
+    <string name="genre_description">"Genre: "</string>
+    <string name="genre">Genre</string>
+    <string name="duration_desription">"Tijdsduur: "</string>
+    <string name="contact_phone">088 525 7500</string>
+    <string name="address_postal_city">4818AJ Breda</string>
+    <string name="address_street_no">Lovendijkstraat 61</string>
+    <string name="address_country">Nederland</string>
+    <string name="contact_name">Bioscoop Estetika</string>
+    <string name="reviews">Reviews</string>
 </resources>
