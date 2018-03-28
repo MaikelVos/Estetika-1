@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 /**
- * Created by ywillems on 26-3-2018.
+ * Created by ywillems on 27-3-2018.
  */
 
 public class Movie implements Serializable{
