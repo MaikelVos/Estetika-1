@@ -13,4 +13,7 @@
     <string name="genre_description">Genre:</string>
     <string name="genre">Genre</string>
     <string name="duration_desription">Duration:</string>
+    <string name="title_activity_movie_review">MovieReviewActivity</string>
+    <string name="author_movie_review">Author</string>
+    <string name="review_movie_review">Review</string>
 </resources>

@@ -6,4 +6,6 @@
     <string name="home_recentlyviewed">Recent Gezien</string>
     <string name="home_mytickets">Mijn Tickets</string>
     <string name="home_contact">Contact</string>
+    <string name="author_movie_review">Autheur</string>
+    <string name="review_movie_review">Review</string>
 </resources>

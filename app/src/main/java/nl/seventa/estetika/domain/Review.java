@@ -20,6 +20,12 @@ public abstract class Review {
         this.text = text;
     }
 
+    public Review(String author, String text) {
+        this.reviewId = UUID.randomUUID();
+        this.author = author;
+        this.text = text;
+    }
+
     public UUID getReviewId() {
         return reviewId;
     }

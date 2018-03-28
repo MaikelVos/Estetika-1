@@ -20,6 +20,12 @@ public class Ticket {
         this.assignedSeat = assignedSeat;
     }
 
+    public Ticket(Movie movie, Seat assignedSeat) {
+        this.ticketId = UUID.randomUUID();
+        this.movie = movie;
+        this.assignedSeat = assignedSeat;
+    }
+
     public UUID getTicketId() {
         return ticketId;
     }

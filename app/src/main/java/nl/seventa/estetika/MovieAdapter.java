@@ -18,10 +18,6 @@ import java.util.List;
 
 import nl.seventa.estetika.domain.Movie;
 
-/**
- * Created by ywillems on 26-3-2018.
- */
-
 public class MovieAdapter extends ArrayAdapter {
     private final String TAG = this.getClass().getSimpleName();
     private List<Movie> movies = new ArrayList();
