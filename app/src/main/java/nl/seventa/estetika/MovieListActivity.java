@@ -16,17 +16,25 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.seventa.estetika.async.GenreAsyncTask;
+import nl.seventa.estetika.async.GenreListener;
 import nl.seventa.estetika.async.MovieAsyncTask;
 import nl.seventa.estetika.async.MovieListAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
+import nl.seventa.estetika.domain.Genre;
 import nl.seventa.estetika.domain.Movie;
 
-public class MovieListActivity extends AppCompatActivity implements MovieListener{
+public class MovieListActivity extends AppCompatActivity implements MovieListener, GenreListener{
     private final String TAG = this.getClass().getSimpleName();
 
     private ListView listView;
+    private Spinner genreSpinner;
     private ArrayList<Movie> movies = new ArrayList<>();
-    private MovieAdapter adapter;
+    private ArrayList<Genre> genres = new ArrayList<>();
+    private ArrayList<String> genreStrings = new ArrayList<>();
+    private ArrayAdapter<String> genreAdapter;
+    private MovieAdapter movieAdapter;
+    private String genreQuery = "";
 
     public static final String MOVIES_INSTANCE = "Movies";
     //public static DatabaseHelper databaseHelper;
@@ -44,14 +52,45 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
             fillMovies();
         }
 
-        //databaseHelper = new DatabaseHelper(this);
+        fillGenres();
 
+        genreAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, genreStrings);
 
-        adapter = new MovieAdapter(this, 0, movies);
+        movieAdapter = new MovieAdapter(this, 0, movies);
 
+        genreSpinner = findViewById(R.id.genreSpinner);
+        genreSpinner.setAdapter(genreAdapter);
+
+        genreSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedGenre = (String) adapterView.getItemAtPosition(i);
+                Log.i(TAG, "Selected genre: " + selectedGenre);
+
+                //If the selected index is greater then 0, camera string equals the selected camera
+                if (adapterView.getSelectedItemPosition() > 0) {
+
+                    for(Genre genre:genres){
+                        if(genre.getName().equals(selectedGenre)){
+                            genreQuery = "&with_genres=" + genre.getId();
+                        }
+                    }
+                } else {
+                    genreQuery = "";
+                }
+                movies.clear();
+                fillMovies();
+                genreAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         listView = findViewById(R.id.movieListView);
-        listView.setAdapter(adapter);
+        listView.setAdapter(movieAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,9 +103,17 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
     }
 
     //Creates and executes an Async task to fetch data from the API
+    private void fillGenres(){
+        genreStrings.add(getResources().getString(R.string.spinner_all));
+        String filter = getResources().getString(R.string.language_filter);
+        String url = "http://api.themoviedb.org/3/genre/movie/list?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
+        GenreAsyncTask task = new GenreAsyncTask(this);
+        task.execute(url);
+    }
+
     private void fillMovies(){
         String filter = getResources().getString(R.string.language_filter);
-        String url = "http://api.themoviedb.org/3/discover/movie?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
+        String url = "http://api.themoviedb.org/3/discover/movie?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter + genreQuery;
         MovieListAsyncTask task = new MovieListAsyncTask(this);
         Log.i(TAG, filter);
         task.execute(url);
@@ -76,8 +123,15 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
     @Override
     public void onMovieListener(Movie movie) {
         movies.add(movie);
-        adapter.notifyDataSetChanged();
+        movieAdapter.notifyDataSetChanged();
         Log.i(TAG, "Dataset changed");
+    }
+
+    @Override
+    public void onGenreListener(Genre genre) {
+        genres.add(genre);
+        genreStrings.add(genre.getName());
+        genreAdapter.notifyDataSetChanged();
     }
 
     @Override

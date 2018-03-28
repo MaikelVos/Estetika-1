@@ -16,17 +16,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import nl.seventa.estetika.domain.Movie;
+import nl.seventa.estetika.domain.Genre;
 
 /**
- * Created by ywillems on 26-3-2018.
+ * Created by ywillems on 28-3-2018.
  */
-
-public class MovieListAsyncTask extends AsyncTask<String, Void, String> {
-    private MovieListener listener = null;
+public class GenreAsyncTask extends AsyncTask<String, Void, String> {
+    private GenreListener listener = null;
     private final String TAG = this.getClass().getSimpleName();
 
-    public MovieListAsyncTask(MovieListener listener) {
+    public GenreAsyncTask(GenreListener listener) {
         this.listener = listener;
     }
 
@@ -99,27 +98,22 @@ public class MovieListAsyncTask extends AsyncTask<String, Void, String> {
             jsonObject = new JSONObject(response);
 
             // Get all movies and start looping
-            JSONArray movies = jsonObject.getJSONArray("results");
-            for (int idx = 0; idx < movies.length(); idx++) {
+            JSONArray genres = jsonObject.getJSONArray("genres");
+            for (int idx = 0; idx < genres.length(); idx++) {
                 // array level objects and get user
-                JSONObject object = movies.getJSONObject(idx);
+                JSONObject object = genres.getJSONObject(idx);
 
-                //Get movie id
+                //Get genre id
                 int id = object.getInt("id");
-                String title = object.getString("title");
+                String name = object.getString("name");
 
-                //Get image source
-                String imgUrl = "https://image.tmdb.org/t/p/w185" + object.getString("poster_path");
-
-                // Create new Movie object
-                Movie movie = new Movie();
-                movie.setMovieId(id);
-                movie.setTitle(title);
-                movie.setUrl(imgUrl);
-
+                // Create new Genre object
+                Genre genre = new Genre();
+                genre.setId(id);
+                genre.setName(name);
 
                 //Callback with new movie data
-                listener.onMovieListener(movie);
+                listener.onGenreListener(genre);
             }
         } catch (JSONException ex) {
             Log.e(TAG, "onPostExecute JSONException " + ex.getLocalizedMessage());

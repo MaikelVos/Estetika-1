@@ -36,7 +36,6 @@ public class MovieAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        Log.i(TAG, "Amount of movies: " + movies.size());
         return movies.size();
     }
 
@@ -53,7 +52,6 @@ public class MovieAdapter extends ArrayAdapter {
         movieItemTitleTextView.setText(movie.getTitle());
         Picasso.with(getContext()).load(movie.getUrl()).into(movieItemImageView);
 
-        Log.i(TAG, "Inflated movie item for ListView");
         return convertView;
     }
 }

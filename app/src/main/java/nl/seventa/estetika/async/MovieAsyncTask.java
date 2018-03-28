@@ -39,7 +39,6 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
         // Defining the return
         String response = "";
 
-        Log.i(TAG, "doInBackground - " + personUrl);
         try {
             //Create an URL object
             URL url = new URL(personUrl);
@@ -102,8 +101,6 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
                 int id = object.getInt("id");
                 String title = object.getString("title");
 
-                Log.i(TAG, "-----------" + title + "------------");
-
                 //get genres
                 JSONArray genres = object.getJSONArray("genres");
                 JSONObject genreObject = (JSONObject) genres.get(0);
@@ -118,8 +115,6 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
 
                 //Get description
                 String description = object.getString("overview");
-
-                Log.i(TAG, "Got movie " + id);
 
                 // Create new Movie object
                 Movie movie = new Movie();

@@ -2,4 +2,14 @@
 <resources>
     <string name="app_name">Эстетика</string>
     <string name="language_filter">ru-RU</string>
+    <string name="home_contact">Контакт</string>
+    <string name="spinner_all">Всё</string>
+    <string name="genre_description">Жанре:</string>
+    <string name="title_description">Название:</string>
+    <string name="home_overview">Обзор Фильмов</string>
+    <string name="home_recentlyviewed">Недавно Заказанный</string>
+    <string name="home_mytickets">Мои Билеты</string>
+    <string name="pegi_description">Возраст:</string>
+    <string name="duration_desription">Продожительность:</string>
+    <string name="minutes">минут</string>
 </resources>
