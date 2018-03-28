@@ -46,7 +46,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         image = findViewById(R.id.movieDetailImageView);
         title = findViewById(R.id.movieDetailTitleTextView);
         genre = findViewById(R.id.movieDetailGenreTextView);
-        pegiTextView = findViewById(R.id.movieDetailPegiTextView);
+        //pegiTextView = findViewById(R.id.movieDetailPegiTextView);
         duration = findViewById(R.id.movieDetailDurationTextView);
         description = findViewById(R.id.movieDetailDescriptionTextView);
         reviewButton = findViewById(R.id.movieDetailReviewButton);
