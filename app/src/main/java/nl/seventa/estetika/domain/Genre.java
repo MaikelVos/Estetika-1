@@ -1,8 +1,5 @@
 package nl.seventa.estetika.domain;
 
-/**
- * Created by ywillems on 28-3-2018.
- */
 public class Genre {
     private int id;
     private String name;

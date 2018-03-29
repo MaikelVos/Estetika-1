@@ -1,9 +1,5 @@
 package nl.seventa.estetika.domain;
 
-/**
- * Created by ywillems on 26-3-2018.
- */
-
 public class Seat {
     private int seatNumber;
     private Hall hall;

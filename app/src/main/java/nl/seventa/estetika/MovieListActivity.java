@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,17 +11,15 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import nl.seventa.estetika.async.GenreAsyncTask;
 import nl.seventa.estetika.async.GenreListener;
-import nl.seventa.estetika.async.MovieAsyncTask;
 import nl.seventa.estetika.async.MovieListAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
 import nl.seventa.estetika.domain.Genre;
 import nl.seventa.estetika.domain.Movie;
 
-public class MovieListActivity extends AppCompatActivity implements MovieListener, GenreListener{
+public class MovieListActivity extends AppCompatActivity implements MovieListener, GenreListener {
     private final String TAG = this.getClass().getSimpleName();
 
     private ListView listView;
@@ -45,9 +40,9 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
         setContentView(R.layout.activity_movie_list);
 
 //Checks if there is a saved instance state and if it contains a movies array
-        if(savedInstanceState != null && savedInstanceState.getSerializable(MOVIES_INSTANCE) != null){
+        if (savedInstanceState != null && savedInstanceState.getSerializable(MOVIES_INSTANCE) != null) {
             movies = (ArrayList<Movie>) savedInstanceState.getSerializable(MOVIES_INSTANCE);
-        }else {
+        } else {
             movies = new ArrayList<>();
             fillMovies();
         }
@@ -70,8 +65,8 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
                 //If the selected index is greater then 0, camera string equals the selected camera
                 if (adapterView.getSelectedItemPosition() > 0) {
 
-                    for(Genre genre:genres){
-                        if(genre.getName().equals(selectedGenre)){
+                    for (Genre genre : genres) {
+                        if (genre.getName().equals(selectedGenre)) {
                             genreQuery = "&with_genres=" + genre.getId();
                         }
                     }
@@ -103,7 +98,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
     }
 
     //Creates and executes an Async task to fetch data from the API
-    private void fillGenres(){
+    private void fillGenres() {
         genreStrings.add(getResources().getString(R.string.spinner_all));
         String filter = getResources().getString(R.string.language_filter);
         String url = "http://api.themoviedb.org/3/genre/movie/list?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
@@ -111,7 +106,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
         task.execute(url);
     }
 
-    private void fillMovies(){
+    private void fillMovies() {
         String filter = getResources().getString(R.string.language_filter);
         String url = "http://api.themoviedb.org/3/discover/movie?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter + genreQuery;
         MovieListAsyncTask task = new MovieListAsyncTask(this);
