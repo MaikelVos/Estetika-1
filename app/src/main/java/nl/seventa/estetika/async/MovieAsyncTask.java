@@ -98,9 +98,9 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
             int id = object.getInt("id");
             String title = object.getString("title");
 
-                //get genres
-                JSONArray genres = object.getJSONArray("genres");
-                JSONObject genreObject = (JSONObject) genres.get(0);
+            //get genres
+            JSONArray genres = object.getJSONArray("genres");
+            JSONObject genreObject = (JSONObject) genres.get(0);
 
             String genre = genreObject.getString("name");
 
@@ -113,14 +113,14 @@ public class MovieAsyncTask extends AsyncTask<String, Void, String> {
             //Get description
             String description = object.getString("overview");
 
-                // Create new Movie object
-                Movie movie = new Movie();
-                movie.setMovieId(id);
-                movie.setTitle(title);
-                movie.setUrl(imgUrl);
-                movie.setDuration(duration);
-                movie.setGenre(genre);
-                movie.setDescription(description);
+            // Create new Movie object
+            Movie movie = new Movie();
+            movie.setMovieId(id);
+            movie.setTitle(title);
+            movie.setUrl(imgUrl);
+            movie.setDuration(duration);
+            movie.setGenre(genre);
+            movie.setDescription(description);
 
             //Callback with new movie data
             listener.onMovieListener(movie);

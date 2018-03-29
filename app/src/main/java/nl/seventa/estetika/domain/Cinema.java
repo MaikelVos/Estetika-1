@@ -2,10 +2,6 @@ package nl.seventa.estetika.domain;
 
 import java.util.ArrayList;
 
-/**
- * Created by ywillems on 26-3-2018.
- */
-
 public class Cinema {
     private String name = "Estetika";
     private String address = "Lovensdijkstraat 61";

@@ -15,13 +15,14 @@
     <string name="duration_desription">Duration:</string>
     <string name="spinner_all">All</string>
     <string name="minutes">minutes</string>
-    <string name="title_activity_movie_review">MovieReviewActivity</string>
+    <string name="title_activity_movie_review" translatable="false">MovieReviewActivity</string>
     <string name="author_movie_review">Author</string>
     <string name="review_movie_review">Review</string>
     <string name="contact_name">Cinema Estetika</string>
     <string name="address_country">The Netherlands</string>
-    <string name="address_street_no">Lovendijkstraat 61</string>
-    <string name="contact_phone">088 525 7500</string>
-    <string name="address_postal_city">4818AJ Breda</string>
+    <string name="address_street_no" translatable="false">Lovendijkstraat 61</string>
+    <string name="contact_phone" translatable="false">088 525 7500</string>
+    <string name="address_postal_city" translatable="false">4818AJ Breda</string>
     <string name="reviews">Reviews</string>
+    <string name="buyticket_description">Buy tickets</string>
 </resources>

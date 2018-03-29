@@ -1,7 +1,6 @@
 package nl.seventa.estetika;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 import nl.seventa.estetika.async.MovieAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
@@ -30,6 +27,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
     private TextView duration;
     private TextView description;
     private Button reviewButton;
+    private Button ticketButton;
 
     public static final String ID_INSTANCE = "Id";
 
@@ -50,6 +48,8 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         duration = findViewById(R.id.movieDetailDurationTextView);
         description = findViewById(R.id.movieDetailDescriptionTextView);
         reviewButton = findViewById(R.id.movieDetailReviewButton);
+        ticketButton = findViewById(R.id.movieDetailBuyTicketButton);
+
 
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +60,21 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
             }
         });
 
+        ticketButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SeatSelectActivity.class);
+                intent.putExtra(ID_INSTANCE, id);
+                startActivity(intent);
+            }
+        });
+
+
+
         getMovie();
     }
 
-    public void getMovie(){
+    public void getMovie() {
         String filter = getResources().getString(R.string.language_filter);
         String url = "http://api.themoviedb.org/3/movie/" + id + "?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
         MovieAsyncTask task = new MovieAsyncTask(this);
@@ -78,7 +89,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         title.setText(movie.getTitle());
         genre.setText(movie.getGenre());
         //pegiTextView.setText(movie.getPegi());
-        duration.setText(movie.getDuration() + " minutes");
+        duration.setText(movie.getDuration() + " " + getResources().getString(R.string.minutes));
         description.setText(movie.getDescription());
 
     }
