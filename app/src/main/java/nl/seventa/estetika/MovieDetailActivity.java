@@ -1,7 +1,6 @@
 package nl.seventa.estetika;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 import nl.seventa.estetika.async.MovieAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
@@ -77,7 +74,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         getMovie();
     }
 
-    public void getMovie(){
+    public void getMovie() {
         String filter = getResources().getString(R.string.language_filter);
         String url = "http://api.themoviedb.org/3/movie/" + id + "?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
         MovieAsyncTask task = new MovieAsyncTask(this);
