@@ -18,9 +18,6 @@ import java.net.URLConnection;
 
 import nl.seventa.estetika.domain.Genre;
 
-/**
- * Created by ywillems on 28-3-2018.
- */
 public class GenreAsyncTask extends AsyncTask<String, Void, String> {
     private GenreListener listener = null;
     private final String TAG = this.getClass().getSimpleName();

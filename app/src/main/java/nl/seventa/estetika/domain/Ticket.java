@@ -2,10 +2,6 @@ package nl.seventa.estetika.domain;
 
 import java.util.UUID;
 
-/**
- * Created by ywillems on 26-3-2018.
- */
-
 public class Ticket {
     private UUID ticketId;
     private Movie movie;

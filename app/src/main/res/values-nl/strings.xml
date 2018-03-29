@@ -17,4 +17,5 @@
     <string name="contact_name">Bioscoop Estetika</string>
     <string name="address_country">Nederland</string>
     <string name="reviews">Reviews</string>
+    <string name="buyticket_description">Bestel kaartjes</string>
 </resources>

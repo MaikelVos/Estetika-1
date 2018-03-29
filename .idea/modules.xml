@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Estetika.iml" filepath="$PROJECT_DIR$/Estetika.iml" />
+      <module fileurl="file://C:\Users\TheRedHatter\Documents\android\Estetika\Estetika.iml" filepath="C:\Users\TheRedHatter\Documents\android\Estetika\Estetika.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\TheRedHatter\Documents\android\Estetika\app\app.iml" filepath="C:\Users\TheRedHatter\Documents\android\Estetika\app\app.iml" />
     </modules>
   </component>
 </project>

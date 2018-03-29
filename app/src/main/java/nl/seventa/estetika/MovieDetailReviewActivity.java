@@ -1,16 +1,16 @@
 package nl.seventa.estetika;
 
 import android.content.Intent;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ListView;
 
-        import java.util.ArrayList;
+import java.util.ArrayList;
 
-        import nl.seventa.estetika.async.MovieReviewListAsyncTask;
-        import nl.seventa.estetika.async.ReviewListener;
-        import nl.seventa.estetika.domain.Review;
+import nl.seventa.estetika.async.MovieReviewListAsyncTask;
+import nl.seventa.estetika.async.ReviewListener;
+import nl.seventa.estetika.domain.Review;
 
 public class MovieDetailReviewActivity extends AppCompatActivity implements ReviewListener {
     private final String TAG = this.getClass().getSimpleName();
