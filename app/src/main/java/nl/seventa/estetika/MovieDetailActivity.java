@@ -89,7 +89,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         title.setText(movie.getTitle());
         genre.setText(movie.getGenre());
         //pegiTextView.setText(movie.getPegi());
-        duration.setText(movie.getDuration() + " minutes");
+        duration.setText(movie.getDuration() + " " + getResources().getString(R.string.minutes));
         description.setText(movie.getDescription());
 
     }
