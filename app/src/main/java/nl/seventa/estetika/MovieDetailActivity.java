@@ -30,6 +30,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
     private TextView duration;
     private TextView description;
     private Button reviewButton;
+    private Button ticketButton;
 
     public static final String ID_INSTANCE = "Id";
 
@@ -50,6 +51,8 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         duration = findViewById(R.id.movieDetailDurationTextView);
         description = findViewById(R.id.movieDetailDescriptionTextView);
         reviewButton = findViewById(R.id.movieDetailReviewButton);
+        ticketButton = findViewById(R.id.movieDetailBuyTicketButton);
+
 
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +62,17 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
                 startActivity(intent);
             }
         });
+
+        ticketButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SeatSelectActivity.class);
+                intent.putExtra(ID_INSTANCE, id);
+                startActivity(intent);
+            }
+        });
+
+
 
         getMovie();
     }

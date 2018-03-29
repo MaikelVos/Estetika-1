@@ -24,4 +24,5 @@
     <string name="contact_phone">088 525 7500</string>
     <string name="address_postal_city">4818AJ Breda</string>
     <string name="reviews">Reviews</string>
+    <string name="buyticket_description">Buy tickets</string>
 </resources>
