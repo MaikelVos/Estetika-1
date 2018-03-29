@@ -1,4 +1,5 @@
 package nl.seventa.estetika;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,7 @@ import nl.seventa.estetika.domain.seatSelect.EmptyItem;
 import nl.seventa.estetika.domain.seatSelect.OnSeatSelected;
 import nl.seventa.estetika.domain.seatSelect.Reserved_db;
 
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DATABASE_NAME;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_EMAIL;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_ID;
@@ -38,15 +41,14 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
     private Cursor cursor;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.mcontext = this;
 
-        Log.i(TAG, "seatselect oncreate" );
+        Log.i(TAG, "seatselect oncreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_select);
-        txtSeatSelected = (TextView)findViewById(R.id.txt_seat_selected);
+        txtSeatSelected = (TextView) findViewById(R.id.txt_seat_selected);
 
 
         try {
@@ -56,7 +58,6 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             Log.i(TAG, "try");
 
 
-
 //            ContentValues testRecord = new ContentValues();
 //            testRecord.put(DB_MOVIE_ID, 1);
 //            testRecord.put(DB_MOVIE_NAME, "test");
@@ -64,43 +65,54 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
 //            testRecord.put(DB_EMAIL, "you@live.nl");
 //
 //            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
+            try {
+                String query = "SELECT * FROM " + DATABASE_NAME +
+                        " WHERE " + DB_MOVIE_ID + " = 1";
+                cursor = db.rawQuery(query, null);
+
+            }
+            catch (NullPointerException e){
+                Log.i(TAG, "database empty");
+            }
 
 
-            String query = "SELECT * FROM " + DATABASE_NAME +
-                    " WHERE " + DB_MOVIE_ID + " = 1";
-            cursor = db.rawQuery(query, null);
-
-        }
-        catch (SQLiteCantOpenDatabaseException e){
-            Log.i(TAG, "catch");
+        } catch (SQLiteCantOpenDatabaseException e) {
+            Log.i(TAG, "catch database non existent");
             Reserved_db reservations_db = new Reserved_db(mcontext);
             SQLiteDatabase db = reservations_db.getWritableDatabase();
 
-            ContentValues testRecord = new ContentValues();
-            testRecord.put(DB_MOVIE_ID, 1);
-            testRecord.put(DB_MOVIE_NAME, "test");
-            testRecord.put(DB_SEAT_NUMBER, 1);
-            testRecord.put(DB_EMAIL, "me@live.nl");
+            try {
+                String query = "SELECT * FROM " + DATABASE_NAME +
+                        " WHERE " + DB_MOVIE_ID + " = 1";
+                cursor = db.rawQuery(query, null);
 
-            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
+            }
+            catch (NullPointerException o){
+                Log.i(TAG, "database empty");
+            }
+//            ContentValues testRecord = new ContentValues();
+//            testRecord.put(DB_MOVIE_ID, 1);
+//            testRecord.put(DB_MOVIE_NAME, "test");
+//            testRecord.put(DB_SEAT_NUMBER, 1);
+//            testRecord.put(DB_EMAIL, "me@live.nl");
+//
+//            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
 
 
         }
 
 
-
         List<AbstractItem> items = new ArrayList<>();
-        for (int i=0; i<30; i++) {
+        for (int i = 0; i < 30; i++) {
 
-            if (i%COLUMNS==0 || i%COLUMNS==4) {
+            if (i % COLUMNS == 0 || i % COLUMNS == 4) {
                 items.add(new EdgeItem(String.valueOf(i)));
-            } else if (i%COLUMNS==1 || i%COLUMNS==2 || i%COLUMNS==3) {
+            } else if (i % COLUMNS == 1 || i % COLUMNS == 2 || i % COLUMNS == 3) {
                 items.add(new CenterItem(String.valueOf(i)));
             } else {
                 items.add(new EmptyItem(String.valueOf(i)));
             }
         }
-
 
 
         GridLayoutManager manager = new GridLayoutManager(this, COLUMNS);
@@ -121,7 +133,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
 
     @Override
     public void onSeatSelected(int count) {
-        txtSeatSelected.setText("Book "+count+" seats");
+        txtSeatSelected.setText("Book " + count + " seats");
     }
 
 

@@ -25,29 +25,18 @@ public class SeatAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {
     private static class EdgeViewHolder extends RecyclerView.ViewHolder {
         ImageView imgSeat;
         private final ImageView imgSeatSelected;
+        private final ImageView imgSeatReserved;
 
         public EdgeViewHolder(View itemView) {
             super(itemView);
             imgSeat = (ImageView) itemView.findViewById(R.id.img_seat);
             imgSeatSelected = (ImageView) itemView.findViewById(R.id.img_seat_selected);
-        }
-
-    }
-
-    private static class ReservedViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgSeat;
-        private final ImageView imgSeatSelected;
-        private final ImageView imgSeatReserved;
-
-        public ReservedViewHolder(View itemView) {
-            super(itemView);
-            imgSeat = (ImageView) itemView.findViewById(R.id.img_seat);
-            imgSeatSelected = (ImageView) itemView.findViewById(R.id.img_seat_selected);
             imgSeatReserved = (ImageView) itemView.findViewById(R.id.img_seat_reserved);
-
         }
 
     }
+
+
 
     private static class CenterViewHolder extends RecyclerView.ViewHolder {
 
@@ -153,7 +142,7 @@ public class SeatAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {
                 } else if (type == AbstractItem.TYPE_EDGE) {
                     final EdgeItem item = (EdgeItem) mItems.get(position);
                     EdgeViewHolder holder = (EdgeViewHolder) viewHolder;
-                    holder.imgSeatSelected.setVisibility(View.VISIBLE);
+                    holder.imgSeatReserved.setVisibility(View.VISIBLE);
                 }
             }
          else {
