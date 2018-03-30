@@ -35,7 +35,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private static final int COLUMNS = 5;
+    private static final int COLUMNS = 7;
     private TextView txtSeatSelected;
     private Context mcontext;
     private Cursor cursor;
@@ -44,6 +44,8 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.mcontext = this;
+        Bundle extras = getIntent().getExtras();
+        Integer q = (Integer) extras.getSerializable(MovieDetailActivity.ID_INSTANCE);
 
         Log.i(TAG, "seatselect oncreate");
         super.onCreate(savedInstanceState);
@@ -51,23 +53,28 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
         txtSeatSelected = (TextView) findViewById(R.id.txt_seat_selected);
 
 
+
         try {
+            //see if database exists (for viewing purposes database is on device
             SQLiteDatabase db = SQLiteDatabase.openDatabase(mcontext.getDatabasePath("reservations").getPath(),
                     null,
                     SQLiteDatabase.OPEN_READWRITE);
             Log.i(TAG, "try");
 
 
-//            ContentValues testRecord = new ContentValues();
-//            testRecord.put(DB_MOVIE_ID, 1);
-//            testRecord.put(DB_MOVIE_NAME, "test");
-//            testRecord.put(DB_SEAT_NUMBER, 3);
-//            testRecord.put(DB_EMAIL, "you@live.nl");
-//
-//            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
+            ContentValues testRecord = new ContentValues();
+            testRecord.put(DB_MOVIE_ID, 269149);
+            testRecord.put(DB_MOVIE_NAME, "test");
+            testRecord.put(DB_SEAT_NUMBER, 5);
+            testRecord.put(DB_EMAIL, "you@live.nl");
+
+            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
+
+
             try {
+                //see if the database has reservations for selected movies
                 String query = "SELECT * FROM " + DATABASE_NAME +
-                        " WHERE " + DB_MOVIE_ID + " = 1";
+                        " WHERE " + DB_MOVIE_ID + " = " + q;
                 cursor = db.rawQuery(query, null);
 
             }
@@ -103,11 +110,11 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
 
 
         List<AbstractItem> items = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 49; i++) {
 
-            if (i % COLUMNS == 0 || i % COLUMNS == 4) {
+            if (i % COLUMNS == 0 || i % COLUMNS == 7 ) {
                 items.add(new EdgeItem(String.valueOf(i)));
-            } else if (i % COLUMNS == 1 || i % COLUMNS == 2 || i % COLUMNS == 3) {
+            } else if (i % COLUMNS == 1 || i % COLUMNS == 2 || i % COLUMNS == 4 || i % COLUMNS == 5 || i % COLUMNS == 6 || i % COLUMNS == 7) {
                 items.add(new CenterItem(String.valueOf(i)));
             } else {
                 items.add(new EmptyItem(String.valueOf(i)));
@@ -126,7 +133,6 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "book button clicked seats: " + adapter.getSelectedItems().toString());
-
             }
         });
     }
