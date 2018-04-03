@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,11 +13,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DATABASE_NAME;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_EMAIL;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_ID;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_NAME;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_SEAT_NUMBER;
+import nl.seventa.estetika.domain.seatSelect.SeatAdapter;
+
+import static nl.seventa.estetika.datalayer.Reserved_db.DATABASE_NAME;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_EMAIL;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_ID;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_NAME;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_SEAT_NUMBER;
 
 public class PaymentActivity extends AppCompatActivity {
     private int movieId;
@@ -32,6 +33,7 @@ public class PaymentActivity extends AppCompatActivity {
     private Button btnSucceed;
     private Button btnFail;
     private Context mcontext;
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class PaymentActivity extends AppCompatActivity {
         this.price = (Integer) extras.getSerializable("PRICE");
         this.movieTitle = (String) extras.getSerializable("MOVIETITLE");
         this.payMethod = (String) extras.getSerializable("PAYMETHOD");
-        this.email = (String) extras.getSerializable("EMAIL");
+        this.email = (String) extras.getString("EMAIL");
 
         this.titleTV = findViewById(R.id.titleTV);
         this.titleTV.setText(this.titleTV.getText() + String.valueOf(this.price));
@@ -86,11 +88,13 @@ public class PaymentActivity extends AppCompatActivity {
 
                 //DAARNA MOET ER EEN DETAILVIEW VAN DE TICKET GE OPEND WORDEN
                 Toast.makeText(PaymentActivity.super.getApplicationContext(), getResources().getString(R.string.paySucceed), Toast.LENGTH_LONG).show();
-
+                
                 Intent intent = new Intent(getApplicationContext(), MovieDetailActivity.class);
                 intent.putExtra(MovieDetailActivity.MOVIE_NAME, movieTitle);
                 intent.putExtra(MovieDetailActivity.ID_INSTANCE, movieId);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+
             }
         });
 

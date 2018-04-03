@@ -27,6 +27,11 @@
         <activity
             android:name=".MovieDetailActivity"
             android:configChanges="orientation|screenSize" />
+            android:parentActivityName=".MovieListActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MovieListActivity" />
+        </activity>
         <activity
             android:name=".MovieReviewListActivity"
             android:configChanges="orientation|screenSize" />
@@ -35,19 +40,18 @@
             android:configChanges="orientation|screenSize" />
         <activity
             android:name=".SeatSelectActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".OrderActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".CinemaReviewListActivity"
-            android:configChanges="orientation|screenSize" />
-        <activity
-            android:name=".domain.CinemaReviewActivity"
-            android:configChanges="orientation|screenSize" />
-        <activity
-            android:name=".PaymentActivity"
-            android:configChanges="orientation|screenSize" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".OrderActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".MyTicketsActivity"></activity>
+        <activity android:name=".CinemaReviewListActivity" />
+        <activity android:name=".domain.CinemaReviewActivity"></activity>
     </application>
 
 </manifest>

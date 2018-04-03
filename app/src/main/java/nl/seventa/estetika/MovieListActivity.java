@@ -63,7 +63,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
                 Log.i(TAG, "Selected genre: " + selectedGenre);
 
                 //If the selected index is greater then 0, camera string equals the selected camera
-                if (adapterView.getSelectedItemPosition() > 0) {
+                 if (adapterView.getSelectedItemPosition() > 0) {
 
                     for (Genre genre : genres) {
                         if (genre.getName().equals(selectedGenre)) {

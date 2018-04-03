@@ -1,4 +1,4 @@
-package nl.seventa.estetika.domain.seatSelect;
+package nl.seventa.estetika.datalayer;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,8 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class Reserved_db extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "reservations";
     private static final  int DATABASE_VERSION = 7;
+
+    public static final String DATABASE_NAME = "reservations";
     public final static String DB_SEAT_NUMBER = "seatId";
     public final static String DB_MOVIE_NAME = "movieName";
     public final static String DB_MOVIE_ID = "movieId";

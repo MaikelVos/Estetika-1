@@ -23,14 +23,13 @@ import nl.seventa.estetika.domain.seatSelect.CenterItem;
 import nl.seventa.estetika.domain.seatSelect.EdgeItem;
 import nl.seventa.estetika.domain.seatSelect.EmptyItem;
 import nl.seventa.estetika.domain.seatSelect.OnSeatSelected;
-import nl.seventa.estetika.domain.seatSelect.Reserved_db;
+import nl.seventa.estetika.datalayer.Reserved_db;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DATABASE_NAME;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_EMAIL;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_ID;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_NAME;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_SEAT_NUMBER;
+import static nl.seventa.estetika.datalayer.Reserved_db.DATABASE_NAME;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_EMAIL;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_ID;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_NAME;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_SEAT_NUMBER;
 
 public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelected {
 
@@ -67,14 +66,6 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             Log.i(TAG, "try");
 
 
-            ContentValues testRecord = new ContentValues();
-            testRecord.put(DB_MOVIE_ID, 269149);
-            testRecord.put(DB_MOVIE_NAME, "test");
-            testRecord.put(DB_SEAT_NUMBER, 5);
-            testRecord.put(DB_EMAIL, "you@live.nl");
-
-            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
-
 
             try {
                 //see if the database has reservations for selected movies
@@ -102,15 +93,9 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             catch (NullPointerException o){
                 Log.i(TAG, "database empty");
             }
-//            ContentValues testRecord = new ContentValues();
-//            testRecord.put(DB_MOVIE_ID, 1);
-//            testRecord.put(DB_MOVIE_NAME, "test");
-//            testRecord.put(DB_SEAT_NUMBER, 1);
-//            testRecord.put(DB_EMAIL, "me@live.nl");
-//
-//            db.insertWithOnConflict(DATABASE_NAME, null, testRecord, SQLiteDatabase.CONFLICT_REPLACE);
 
 
+        db.close();
         }
 
 
@@ -145,6 +130,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
                     ArrayList<Integer> selectedSeats = (ArrayList<Integer>) adapter.getSelectedItems();
                     intent.putExtra("SEATS", selectedSeats);
                     Log.i(TAG, "TESTING ARRAYLIST BOOKED SEATS: " + selectedSeats.toString());
+
                     startActivity(intent);
                 } else {
                     Log.i(TAG, "Tried to order tickets with illegal amount: " + adapter.getSelectedItems().size());
