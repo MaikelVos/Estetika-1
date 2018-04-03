@@ -40,7 +40,7 @@
         </activity>
         <activity android:name=".OrderActivity" />
         <activity android:name=".CinemaReviewListActivity" />
-        <activity android:name=".domain.CinemaReviewActivity"></activity>
+        <activity android:name=".CinemaReviewActivity"></activity>
         <activity android:name=".PaymentActivity"></activity>
     </application>
 
