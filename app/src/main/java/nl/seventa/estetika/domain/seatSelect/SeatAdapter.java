@@ -14,7 +14,7 @@ import java.util.List;
 
 import nl.seventa.estetika.R;
 
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_SEAT_NUMBER;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_SEAT_NUMBER;
 
 
 public class SeatAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {

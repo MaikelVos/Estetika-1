@@ -23,14 +23,13 @@ import nl.seventa.estetika.domain.seatSelect.CenterItem;
 import nl.seventa.estetika.domain.seatSelect.EdgeItem;
 import nl.seventa.estetika.domain.seatSelect.EmptyItem;
 import nl.seventa.estetika.domain.seatSelect.OnSeatSelected;
-import nl.seventa.estetika.domain.seatSelect.Reserved_db;
+import nl.seventa.estetika.datalayer.Reserved_db;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DATABASE_NAME;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_EMAIL;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_ID;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_NAME;
-import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_SEAT_NUMBER;
+import static nl.seventa.estetika.datalayer.Reserved_db.DATABASE_NAME;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_EMAIL;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_ID;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_NAME;
+import static nl.seventa.estetika.datalayer.Reserved_db.DB_SEAT_NUMBER;
 
 public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelected {
 
