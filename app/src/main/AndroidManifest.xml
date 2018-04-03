@@ -37,6 +37,7 @@
                 />
         </intent-filter>
         </activity>
+        <activity android:name=".OrderActivity"></activity>
     </application>
 
 </manifest>

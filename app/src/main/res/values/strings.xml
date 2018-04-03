@@ -25,4 +25,11 @@
     <string name="address_postal_city" translatable="false">4818AJ Breda</string>
     <string name="reviews">Reviews</string>
     <string name="buyticket_description">Buy tickets</string>
+    <string name="OrderActivity_TicketsFor">Tickets For</string>
+    <string name="OrderActivity_TotalPrice">Total: €</string>
+    <string name="OrderActivity_ticketsRegular">"Regular Tickets: "</string>
+    <string name="OrderActivity_ticketsRecuction">"Reduction Tickets: "</string>
+    <string name="OrderActivity_ticketsChilds">"Children Tickets (under 12): "</string>
+    <string name="OrderActivity_placeOrder">Place Order</string>
+    <string name="OrderActivity_seat">Seat: </string>
 </resources>

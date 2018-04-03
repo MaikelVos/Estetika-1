@@ -2,6 +2,7 @@ package nl.seventa.estetika;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteCantOpenDatabaseException;
 import android.database.sqlite.SQLiteDatabase;
@@ -39,14 +40,14 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
     private TextView txtSeatSelected;
     private Context mcontext;
     private Cursor cursor;
+    private Integer movieId;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.mcontext = this;
         Bundle extras = getIntent().getExtras();
-        Integer q = (Integer) extras.getSerializable(MovieDetailActivity.ID_INSTANCE);
-
+        movieId = (Integer) extras.getSerializable(MovieDetailActivity.ID_INSTANCE);
         Log.i(TAG, "seatselect oncreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_select);
@@ -74,7 +75,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             try {
                 //see if the database has reservations for selected movies
                 String query = "SELECT * FROM " + DATABASE_NAME +
-                        " WHERE " + DB_MOVIE_ID + " = " + q;
+                        " WHERE " + DB_MOVIE_ID + " = " + movieId;
                 cursor = db.rawQuery(query, null);
 
             }
@@ -133,6 +134,12 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "book button clicked seats: " + adapter.getSelectedItems().toString());
+                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                intent.putExtra("MOVIEID", movieId);
+                ArrayList<Integer> selectedSeats = (ArrayList<Integer>) adapter.getSelectedItems();
+                intent.putExtra("SEATS", selectedSeats);
+                Log.i(TAG, "TESTING ARRAYLIST BOOKED SEATS: " + selectedSeats.toString());
+                startActivity(intent);
             }
         });
     }
