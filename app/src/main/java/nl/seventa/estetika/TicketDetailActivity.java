@@ -3,11 +3,18 @@ package nl.seventa.estetika;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.google.zxing.BarcodeFormat;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.util.ArrayList;
 
@@ -27,6 +34,7 @@ public class TicketDetailActivity extends AppCompatActivity {
     private Movie movie;
     private String email;
     private ListView seatsLV;
+    private ImageView qrCodeIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +49,15 @@ public class TicketDetailActivity extends AppCompatActivity {
         getTickets(email, movie.getMovieId());
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tickets);
         this.seatsLV.setAdapter(adapter);
+        this.qrCodeIV = findViewById(R.id.qrCodeTV);
+
+        this.seatsLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int seatNumber = tickets.get(position);
+                insertQR(seatNumber);
+            }
+        });
 
         //IN THIS ACTIVITY THE TICKETS FOR A CERTAIN MOVIE WILL BE DISPLAYED IN A LISTVIEW
         //THERE WILL BE AN IMAGEVIEW UNDER THE LISTVIEW IN ORDER TO VIEW THE QR CODE (ONCLICK LISTENER)
@@ -67,5 +84,19 @@ public class TicketDetailActivity extends AppCompatActivity {
             }
         }
         Log.i(TAG, "movieId" + tickets.toString());
+    }
+
+    private void insertQR(int seatNumber) {
+        String movieID = String.valueOf(movie.getMovieId());
+        String seat = String.valueOf(seatNumber);
+        String qrText = "{\"MOVIE\": \"" + movieID + "\", \"SEAT\": \"" + seat + "\"}";
+        try {
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            Bitmap bitmap = barcodeEncoder.encodeBitmap(qrText, BarcodeFormat.QR_CODE, 150, 150);
+            qrCodeIV.setImageBitmap(bitmap);
+        } catch(Exception e) {
+            Log.i(TAG, "QR Code generator failed!");
+        }
+
     }
 }
