@@ -27,7 +27,7 @@
         <activity
             android:name=".MovieDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity android:name=".MovieDetailReviewActivity" />
+        <activity android:name=".MovieReviewListActivity" />
         <activity android:name=".ContactActivity" />
         <activity
             android:name=".SeatSelectActivity"
@@ -39,6 +39,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OrderActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".MyTicketsActivity"></activity>
         <activity android:name=".CinemaReviewListActivity" />
         <activity android:name=".CinemaReviewActivity"></activity>
         <activity android:name=".PaymentActivity"></activity>

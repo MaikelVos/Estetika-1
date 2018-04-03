@@ -9,12 +9,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import nl.seventa.estetika.async.MovieAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
@@ -23,6 +26,7 @@ import nl.seventa.estetika.domain.Movie;
 public class OrderActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getSimpleName();
+    private final List<String> payMethods = Arrays.asList("iDeal", "PayPal", "CreditCard");
     private Integer movieId;
     private ArrayList<Integer> selectedSeats;
     private TextView titleTV;
@@ -31,6 +35,8 @@ public class OrderActivity extends AppCompatActivity {
     private TextView ticketsReductionTV;
     private TextView ticketsChildsTV;
     private TextView totalPriceTV;
+    private EditText emailET;
+    private Spinner methodSpinner;
     private Button placeOrderBtn;
     private String movieTitle;
 
@@ -67,6 +73,7 @@ public class OrderActivity extends AppCompatActivity {
         this.ticketsChildsTV.setText(this.ticketsChildsTV.getText() + "0");
         final int totalPrice = 10 * this.selectedSeats.size();
         this.totalPriceTV.setText(this.totalPriceTV.getText() + String.valueOf(totalPrice));
+        this.emailET = findViewById(R.id.emailET);
         this.placeOrderBtn = findViewById(R.id.placeOrderBtn);
         this.placeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +84,17 @@ public class OrderActivity extends AppCompatActivity {
                 intent.putExtra("PRICE", totalPrice);
                 intent.putExtra("MOVIEID", movieId);
                 intent.putExtra("MOVIETITLE", movieTitle);
+                intent.putExtra("PAYMETHOD", (String) methodSpinner.getSelectedItem());
+                intent.putExtra("EMAIL", emailET.getText());
                 Log.i(TAG, "Starting intent");
                 startActivity(intent);
             }
         });
+
+        this.methodSpinner = findViewById(R.id.spinnerMethod);
+        ArrayAdapter<String> payMethodAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item);
+        payMethodAdapter.addAll(this.payMethods);
+        this.methodSpinner.setAdapter(payMethodAdapter);
     }
 
     private void getMovie() {
