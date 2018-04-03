@@ -18,7 +18,7 @@ import nl.seventa.estetika.domain.Movie;
 public class MovieDetailActivity extends AppCompatActivity implements MovieListener {
     private final String TAG = this.getClass().getSimpleName();
     private int id;
-
+    private String MovieName;
     private ImageView image;
     private TextView title;
     private TextView genre;
