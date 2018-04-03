@@ -43,4 +43,5 @@
     <string name="cinema_create_review_submit_message">Your review has been submitted</string>
     <string name="inputEmail">Email Address</string>
     <string name="ticketsFor">"Tickets for: "</string>
+    <string name="noSeatSelected">No Seat Selected!</string>
 </resources>

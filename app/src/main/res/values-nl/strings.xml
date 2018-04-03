@@ -36,4 +36,5 @@
     <string name="cinema_create_review_submit_message">Jouw review is verzonden</string>
     <string name="inputEmail">Email Adres</string>
     <string name="ticketsFor">"Tickets voor: "</string>
+    <string name="noSeatSelected">Geen Stoel Gekozen!</string>
 </resources>
