@@ -35,6 +35,7 @@ public class OrderActivity extends AppCompatActivity {
     private TextView ticketsReductionTV;
     private TextView ticketsChildsTV;
     private TextView totalPriceTV;
+    private EditText emailET;
     private Spinner methodSpinner;
     private Button placeOrderBtn;
     private String movieTitle;
@@ -72,6 +73,7 @@ public class OrderActivity extends AppCompatActivity {
         this.ticketsChildsTV.setText(this.ticketsChildsTV.getText() + "0");
         final int totalPrice = 10 * this.selectedSeats.size();
         this.totalPriceTV.setText(this.totalPriceTV.getText() + String.valueOf(totalPrice));
+        this.emailET = findViewById(R.id.emailET);
         this.placeOrderBtn = findViewById(R.id.placeOrderBtn);
         this.placeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +85,7 @@ public class OrderActivity extends AppCompatActivity {
                 intent.putExtra("MOVIEID", movieId);
                 intent.putExtra("MOVIETITLE", movieTitle);
                 intent.putExtra("PAYMETHOD", (String) methodSpinner.getSelectedItem());
+                intent.putExtra("EMAIL", emailET.getText());
                 Log.i(TAG, "Starting intent");
                 startActivity(intent);
             }
