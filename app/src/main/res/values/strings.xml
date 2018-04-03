@@ -36,4 +36,9 @@
     <string name="FailPay">Fail Payment</string>
     <string name="payFailTryAgain">Payment Failed, Please Try Again</string>
     <string name="paySucceed">Payment Succeeded</string>
+    <string name="cinema_create_review">Create Review</string>
+    <string name="cinema_create_review_email">E-mail:</string>
+    <string name="cinema_create_review_review">Your Review:</string>
+    <string name="cinema_create_review_submit">Submit</string>
+    <string name="cinema_create_review_submit_message">Your review has been submitted</string>
 </resources>

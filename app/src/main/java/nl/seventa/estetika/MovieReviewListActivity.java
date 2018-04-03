@@ -12,7 +12,7 @@ import nl.seventa.estetika.async.MovieReviewListAsyncTask;
 import nl.seventa.estetika.async.ReviewListener;
 import nl.seventa.estetika.domain.Review;
 
-public class MovieDetailReviewActivity extends AppCompatActivity implements ReviewListener {
+public class MovieReviewListActivity extends AppCompatActivity implements ReviewListener {
     private final String TAG = this.getClass().getSimpleName();
 
     private ListView listView;

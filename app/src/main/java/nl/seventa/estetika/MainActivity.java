@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView mainOverviewImageView;
     private ImageView mainContactImageView;
+    private ImageView mainTicketsImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.mainOverviewImageView = findViewById(R.id.mainOverviewImageView);
         this.mainContactImageView = findViewById(R.id.mainContactImageView);
+        this.mainTicketsImageView = findViewById(R.id.mainRecentImageView);
 
         this.mainOverviewImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ContactActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        this.mainTicketsImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(getApplicationContext(), );
+                //startActivity(intent);
             }
         });
     }

@@ -29,4 +29,9 @@
     <string name="FailPay">Laat betaling falen</string>
     <string name="payFailTryAgain">Betaling Gefaald, Probeer Opnieuw</string>
     <string name="paySucceed">Betaling Geslaagd</string>
+    <string name="cinema_create_review">Maak Review</string>
+    <string name="cinema_create_review_email">Mail adres:</string>
+    <string name="cinema_create_review_review">Jouw Review:</string>
+    <string name="cinema_create_review_submit">Verzenden</string>
+    <string name="cinema_create_review_submit_message">Jouw review is verzonden</string>
 </resources>

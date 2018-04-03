@@ -91,6 +91,7 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), MovieDetailActivity.class);
+                intent.putExtra(MovieDetailActivity.MOVIE_NAME, movies.get(i).getTitle());
                 intent.putExtra(MovieDetailActivity.ID_INSTANCE, movies.get(i).getMovieId());
                 startActivity(intent);
             }

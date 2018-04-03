@@ -42,6 +42,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
     private Context mcontext;
     private Cursor cursor;
     private Integer movieId;
+    private String movieName;
 
 
     @Override
@@ -49,6 +50,8 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
         this.mcontext = this;
         Bundle extras = getIntent().getExtras();
         movieId = (Integer) extras.getSerializable(MovieDetailActivity.ID_INSTANCE);
+        movieName = (String) extras.getSerializable(MovieDetailActivity.MOVIE_NAME);
+
         Log.i(TAG, "seatselect oncreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_select);
@@ -138,6 +141,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
                     Log.i(TAG, "book button clicked seats: " + adapter.getSelectedItems().toString());
                     Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
                     intent.putExtra("MOVIEID", movieId);
+                    intent.putExtra("MOVIENAME", movieName);
                     ArrayList<Integer> selectedSeats = (ArrayList<Integer>) adapter.getSelectedItems();
                     intent.putExtra("SEATS", selectedSeats);
                     Log.i(TAG, "TESTING ARRAYLIST BOOKED SEATS: " + selectedSeats.toString());

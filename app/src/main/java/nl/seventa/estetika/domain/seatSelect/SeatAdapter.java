@@ -78,12 +78,10 @@ public class SeatAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {
 
         for (i = 0; i < cursor.getCount(); i++) {
 
-
         cursor.moveToPosition(i);
         int test = cursor.getInt(cursor.getColumnIndex(DB_SEAT_NUMBER));
             taken.add(test);
             Log.i(TAG, "count " + cursor.getCount());
-            Log.i(TAG, "whatever");
 
         }
 
