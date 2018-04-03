@@ -1,6 +1,7 @@
 package nl.seventa.estetika;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -30,6 +32,7 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
     private EditText emailET;
     private MovieAdapter movieAdapter;
     private ArrayList<Movie> movies;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +50,23 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     // Perform action on key press
-                    getMovies(emailET.getText().toString());
+                    email = emailET.getText().toString();
+                    getMovies(email);
                     fillMovies();
                     return true;
                 }
                 return false;
+            }
+        });
+
+        moviesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getApplicationContext(), TicketDetailActivity.class);
+                Log.i(TAG, "Movie: " + movies.get(position));
+                i.putExtra("MOVIE", movies.get(position));
+                i.putExtra("EMAIL", email);
+                startActivity(i);
             }
         });
 
