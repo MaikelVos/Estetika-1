@@ -32,4 +32,9 @@
     <string name="OrderActivity_ticketsChilds">"Children Tickets (under 12): "</string>
     <string name="OrderActivity_placeOrder">Place Order</string>
     <string name="OrderActivity_seat">Seat: </string>
+    <string name="cinema_create_review">Create Review</string>
+    <string name="cinema_create_review_email">E-mail:</string>
+    <string name="cinema_create_review_review">Your Review:</string>
+    <string name="cinema_create_review_submit">Submit</string>
+    <string name="cinema_create_review_submit_message">Your review has been submitted</string>
 </resources>
