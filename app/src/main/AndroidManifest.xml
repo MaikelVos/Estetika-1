@@ -27,11 +27,8 @@
         <activity
             android:name=".MovieDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:parentActivityName=".MovieListActivity" >
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MovieListActivity" />
-        </activity>
+            android:parentActivityName=".MovieListActivity" />
+
         <activity android:name=".MovieReviewListActivity" />
         <activity android:name=".ContactActivity" />
         <activity
