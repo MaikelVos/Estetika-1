@@ -1,4 +1,4 @@
-package nl.seventa.estetika.domain;
+package nl.seventa.estetika;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -12,13 +12,14 @@ import nl.seventa.estetika.OrderActivity;
 import nl.seventa.estetika.R;
 
 public class CinemaReviewActivity extends AppCompatActivity implements View.OnClickListener{
+    private Button submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinema_review);
 
-        Button submitButton = findViewById(R.id.cinema_create_review_submit_button);
+        submitButton = findViewById(R.id.cinema_create_review_submit_button);
         submitButton.setOnClickListener(this);
     }
 
