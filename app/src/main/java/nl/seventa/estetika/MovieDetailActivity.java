@@ -18,12 +18,10 @@ import nl.seventa.estetika.domain.Movie;
 public class MovieDetailActivity extends AppCompatActivity implements MovieListener {
     private final String TAG = this.getClass().getSimpleName();
     private int id;
-    private String pegi;
 
     private ImageView image;
     private TextView title;
     private TextView genre;
-    private TextView pegiTextView;
     private TextView duration;
     private TextView description;
     private Button reviewButton;
@@ -44,7 +42,6 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         image = findViewById(R.id.movieDetailImageView);
         title = findViewById(R.id.movieDetailTitleTextView);
         genre = findViewById(R.id.movieDetailGenreTextView);
-        //pegiTextView = findViewById(R.id.movieDetailPegiTextView);
         duration = findViewById(R.id.movieDetailDurationTextView);
         description = findViewById(R.id.movieDetailDescriptionTextView);
         reviewButton = findViewById(R.id.movieDetailReviewButton);
@@ -54,7 +51,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MovieDetailReviewActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MovieReviewListActivity.class);
                 intent.putExtra(ID_INSTANCE, id);
                 startActivity(intent);
             }
@@ -74,7 +71,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         getMovie();
     }
 
-    public void getMovie() {
+    private void getMovie() {
         String filter = getResources().getString(R.string.language_filter);
         String url = "http://api.themoviedb.org/3/movie/" + id + "?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
         MovieAsyncTask task = new MovieAsyncTask(this);
