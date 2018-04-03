@@ -18,4 +18,11 @@
     <string name="address_country">Nederland</string>
     <string name="reviews">Reviews</string>
     <string name="buyticket_description">Bestel kaartjes</string>
+    <string name="OrderActivity_TicketsFor">Tickets Voor</string>
+    <string name="OrderActivity_TotalPrice">Totaal: €</string>
+    <string name="OrderActivity_ticketsRegular">"Reguliere Tickets: "</string>
+    <string name="OrderActivity_ticketsRecuction">"Korting Tickets: "</string>
+    <string name="OrderActivity_ticketsChilds">"Kinderen Tickets (t/m 12): "</string>
+    <string name="OrderActivity_placeOrder">Bestelling Plaatsen</string>
+    <string name="OrderActivity_seat">Stoel: </string>
 </resources>
