@@ -39,7 +39,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OrderActivity" />
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".MyTicketsActivity"></activity>
     </application>
 
 </manifest>
