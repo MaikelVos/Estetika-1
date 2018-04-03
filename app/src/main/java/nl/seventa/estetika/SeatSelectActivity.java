@@ -37,6 +37,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
     private final String TAG = this.getClass().getSimpleName();
 
     private static final int COLUMNS = 7;
+    private final int SEATS = 49;
     private TextView txtSeatSelected;
     private Context mcontext;
     private Cursor cursor;
@@ -111,7 +112,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
 
 
         List<AbstractItem> items = new ArrayList<>();
-        for (int i = 0; i < 49; i++) {
+        for (int i = 0; i < this.SEATS; i++) {
 
             if (i % COLUMNS == 0 || i % COLUMNS == 7 ) {
                 items.add(new EdgeItem(String.valueOf(i)));
@@ -133,13 +134,17 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
         txtSeatSelected.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(TAG, "book button clicked seats: " + adapter.getSelectedItems().toString());
-                Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
-                intent.putExtra("MOVIEID", movieId);
-                ArrayList<Integer> selectedSeats = (ArrayList<Integer>) adapter.getSelectedItems();
-                intent.putExtra("SEATS", selectedSeats);
-                Log.i(TAG, "TESTING ARRAYLIST BOOKED SEATS: " + selectedSeats.toString());
-                startActivity(intent);
+                if (adapter.getSelectedItems().size() > 0 && adapter.getSelectedItems().size() < (SEATS - COLUMNS)) {
+                    Log.i(TAG, "book button clicked seats: " + adapter.getSelectedItems().toString());
+                    Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+                    intent.putExtra("MOVIEID", movieId);
+                    ArrayList<Integer> selectedSeats = (ArrayList<Integer>) adapter.getSelectedItems();
+                    intent.putExtra("SEATS", selectedSeats);
+                    Log.i(TAG, "TESTING ARRAYLIST BOOKED SEATS: " + selectedSeats.toString());
+                    startActivity(intent);
+                } else {
+                    Log.i(TAG, "Tried to order tickets with illegal amount: " + adapter.getSelectedItems().size());
+                }
             }
         });
     }

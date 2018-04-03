@@ -24,7 +24,7 @@
     <string name="contact_phone" translatable="false">088 525 7500</string>
     <string name="address_postal_city" translatable="false">4818AJ Breda</string>
     <string name="reviews">Reviews</string>
-    <string name="buyticket_description">Buy tickets</string>
+    <string name="buyticket_description">Order Tickets</string>
     <string name="OrderActivity_TicketsFor">Tickets For</string>
     <string name="OrderActivity_TotalPrice">Total: €</string>
     <string name="OrderActivity_ticketsRegular">"Regular Tickets: "</string>
@@ -32,6 +32,10 @@
     <string name="OrderActivity_ticketsChilds">"Children Tickets (under 12): "</string>
     <string name="OrderActivity_placeOrder">Place Order</string>
     <string name="OrderActivity_seat">Seat: </string>
+    <string name="SucceedPay">Succeed Payment</string>
+    <string name="FailPay">Fail Payment</string>
+    <string name="payFailTryAgain">Payment Failed, Please Try Again</string>
+    <string name="paySucceed">Payment Succeeded</string>
     <string name="cinema_create_review">Create Review</string>
     <string name="cinema_create_review_email">E-mail:</string>
     <string name="cinema_create_review_review">Your Review:</string>
