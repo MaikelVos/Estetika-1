@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".MovieListActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".MovieDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -31,6 +31,12 @@
 
         <activity android:name=".MovieReviewListActivity" />
         <activity android:name=".ContactActivity" />
+        <activity
+            android:name=".MovieReviewListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ContactActivity"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".SeatSelectActivity"
             android:screenOrientation="portrait">
@@ -42,10 +48,9 @@
         </activity>
         <activity android:name=".OrderActivity" />
         <activity android:name=".PaymentActivity" />
-        <activity android:name=".TicketListActivity" />
+        <activity android:name=".MyTicketsActivity"></activity>
         <activity android:name=".CinemaReviewListActivity" />
-        <activity android:name=".CinemaReviewActivity" />
-        <activity android:name=".TicketDetailActivity"></activity>
+        <activity android:name=".domain.CinemaReviewActivity"></activity>
     </application>
 
 </manifest>
