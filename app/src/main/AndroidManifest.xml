@@ -40,10 +40,11 @@
         </activity>
         <activity android:name=".OrderActivity" />
         <activity android:name=".PaymentActivity" />
-        <activity android:name=".MyTicketsActivity"></activity>
+        <activity android:name=".TicketListActivity" />
         <activity android:name=".CinemaReviewListActivity" />
-        <activity android:name=".CinemaReviewActivity"></activity>
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".CinemaReviewActivity" />
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".TicketDetailActivity"></activity>
     </application>
 
 </manifest>
