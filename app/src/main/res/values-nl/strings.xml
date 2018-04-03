@@ -25,4 +25,8 @@
     <string name="OrderActivity_ticketsChilds">"Kinderen Tickets (t/m 12): "</string>
     <string name="OrderActivity_placeOrder">Bestelling Plaatsen</string>
     <string name="OrderActivity_seat">Stoel: </string>
+    <string name="SucceedPay">Laat betaling slagen</string>
+    <string name="FailPay">Laat betaling falen</string>
+    <string name="payFailTryAgain">Betaling Gefaald, Probeer Opnieuw</string>
+    <string name="paySucceed">Betaling Geslaagd</string>
 </resources>

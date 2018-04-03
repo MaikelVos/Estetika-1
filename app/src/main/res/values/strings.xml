@@ -32,4 +32,8 @@
     <string name="OrderActivity_ticketsChilds">"Children Tickets (under 12): "</string>
     <string name="OrderActivity_placeOrder">Place Order</string>
     <string name="OrderActivity_seat">Seat: </string>
+    <string name="SucceedPay">Succeed Payment</string>
+    <string name="FailPay">Fail Payment</string>
+    <string name="payFailTryAgain">Payment Failed, Please Try Again</string>
+    <string name="paySucceed">Payment Succeeded</string>
 </resources>

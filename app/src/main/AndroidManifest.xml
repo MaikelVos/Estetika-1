@@ -29,15 +29,17 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity android:name=".MovieDetailReviewActivity" />
         <activity android:name=".ContactActivity" />
-        <activity android:name=".SeatSelectActivity"
+        <activity
+            android:name=".SeatSelectActivity"
             android:screenOrientation="portrait">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER"
-                />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".OrderActivity" />
+        <activity android:name=".PaymentActivity"></activity>
     </application>
 
 </manifest>

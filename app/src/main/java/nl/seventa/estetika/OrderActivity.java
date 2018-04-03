@@ -1,5 +1,6 @@
 package nl.seventa.estetika;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,13 +64,20 @@ public class OrderActivity extends AppCompatActivity implements MovieListener {
         this.ticketsRegularTV.setText(this.ticketsRegularTV.getText() + String.valueOf(this.selectedSeats.size()));
         this.ticketsReductionTV.setText(this.ticketsReductionTV.getText() + "0");
         this.ticketsChildsTV.setText(this.ticketsChildsTV.getText() + "0");
-        int totalPrice = 10 * this.selectedSeats.size();
+        final int totalPrice = 10 * this.selectedSeats.size();
         this.totalPriceTV.setText(this.totalPriceTV.getText() + String.valueOf(totalPrice));
         this.placeOrderBtn = findViewById(R.id.placeOrderBtn);
         this.placeOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(OrderActivity.super.getApplicationContext(), "Ordered " + selectedSeats.size() + " tickets for " + movieTitle + " for €" + String.valueOf(10 * selectedSeats.size()), Toast.LENGTH_LONG).show();
+                Log.i(TAG, "Creating intent and passing arguments");
+                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                intent.putExtra("SEATS", selectedSeats);
+                intent.putExtra("PRICE", totalPrice);
+                intent.putExtra("MOVIEID", movieId);
+                intent.putExtra("MOVIETITLE", movieTitle);
+                Log.i(TAG, "Starting intent");
+                startActivity(intent);
             }
         });
     }
