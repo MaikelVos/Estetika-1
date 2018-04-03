@@ -85,7 +85,7 @@ public class OrderActivity extends AppCompatActivity {
                 intent.putExtra("MOVIEID", movieId);
                 intent.putExtra("MOVIETITLE", movieTitle);
                 intent.putExtra("PAYMETHOD", (String) methodSpinner.getSelectedItem());
-                intent.putExtra("EMAIL", emailET.getText());
+                intent.putExtra("EMAIL", emailET.getText().toString());
                 Log.i(TAG, "Starting intent");
                 startActivity(intent);
             }

@@ -26,7 +26,12 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
         <activity
             android:name=".MovieDetailActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".MovieListActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MovieListActivity" />
+        </activity>
         <activity android:name=".MovieReviewListActivity" />
         <activity android:name=".ContactActivity" />
         <activity
@@ -43,7 +48,7 @@
         <activity android:name=".MyTicketsActivity"></activity>
         <activity android:name=".CinemaReviewListActivity" />
         <activity android:name=".CinemaReviewActivity"></activity>
-        <activity android:name=".PaymentActivity"></activity>
+
     </application>
 
 </manifest>
