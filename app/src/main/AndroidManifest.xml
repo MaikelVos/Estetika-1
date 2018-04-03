@@ -29,8 +29,6 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:parentActivityName=".MovieListActivity" />
 
-        <activity android:name=".MovieReviewListActivity" />
-        <activity android:name=".ContactActivity" />
         <activity
             android:name=".MovieReviewListActivity"
             android:configChanges="orientation|screenSize" />
@@ -48,9 +46,10 @@
         </activity>
         <activity android:name=".OrderActivity" />
         <activity android:name=".PaymentActivity" />
-        <activity android:name=".MyTicketsActivity"></activity>
+        <activity android:name=".TicketDetailActivity"/>
         <activity android:name=".CinemaReviewListActivity" />
-        <activity android:name=".domain.CinemaReviewActivity"></activity>
+        <activity android:name=".CinemaReviewActivity"/>
+        <activity android:name=".TicketListActivity"/>
     </application>
 
 </manifest>
