@@ -25,4 +25,9 @@
     <string name="OrderActivity_ticketsChilds">"Kinderen Tickets (t/m 12): "</string>
     <string name="OrderActivity_placeOrder">Bestelling Plaatsen</string>
     <string name="OrderActivity_seat">Stoel: </string>
+    <string name="cinema_create_review">Maak Review</string>
+    <string name="cinema_create_review_email">Mail adres:</string>
+    <string name="cinema_create_review_review">Jouw Review:</string>
+    <string name="cinema_create_review_submit">Verzenden</string>
+    <string name="cinema_create_review_submit_message">Jouw review is verzonden</string>
 </resources>
