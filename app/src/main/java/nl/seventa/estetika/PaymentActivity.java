@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import nl.seventa.estetika.domain.seatSelect.SeatAdapter;
+
 import static nl.seventa.estetika.datalayer.Reserved_db.DATABASE_NAME;
 import static nl.seventa.estetika.datalayer.Reserved_db.DB_EMAIL;
 import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_ID;
@@ -31,7 +33,6 @@ public class PaymentActivity extends AppCompatActivity {
     private Button btnSucceed;
     private Button btnFail;
     private Context mcontext;
-    private ArrayList Array = new ArrayList();
     private final String TAG = this.getClass().getSimpleName();
 
     @Override
@@ -46,7 +47,7 @@ public class PaymentActivity extends AppCompatActivity {
         this.price = (Integer) extras.getSerializable("PRICE");
         this.movieTitle = (String) extras.getSerializable("MOVIETITLE");
         this.payMethod = (String) extras.getSerializable("PAYMETHOD");
-        this.email = (String) extras.getSerializable("EMAIL");
+        this.email = (String) extras.getString("EMAIL");
 
         this.titleTV = findViewById(R.id.titleTV);
         this.titleTV.setText(this.titleTV.getText() + String.valueOf(this.price));
@@ -91,7 +92,9 @@ public class PaymentActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MovieDetailActivity.class);
                 intent.putExtra(MovieDetailActivity.MOVIE_NAME, movieTitle);
                 intent.putExtra(MovieDetailActivity.ID_INSTANCE, movieId);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+
             }
         });
 

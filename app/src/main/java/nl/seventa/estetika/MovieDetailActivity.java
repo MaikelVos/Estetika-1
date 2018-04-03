@@ -94,4 +94,9 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         description.setText(movie.getDescription());
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MovieListActivity.class);
+        startActivity(intent);
+    }
 }

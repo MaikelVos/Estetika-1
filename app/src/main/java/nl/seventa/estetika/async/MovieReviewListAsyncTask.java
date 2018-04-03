@@ -63,7 +63,7 @@ public class MovieReviewListAsyncTask extends AsyncTask<String, Void, String> {
             if (responsCode == HttpURLConnection.HTTP_OK) {
                 inputStream = httpConnection.getInputStream();
                 response = getStringFromInputStream(inputStream);
-                Log.i(TAG, "doInBackground response = " + response);
+                //Log.i(TAG, "doInBackground response = " + response);
             } else {
                 Log.e(TAG, "Error, invalid response");
             }
@@ -84,7 +84,7 @@ public class MovieReviewListAsyncTask extends AsyncTask<String, Void, String> {
      */
     protected void onPostExecute(String response) {
 
-        Log.i(TAG, "onPostExecute " + response);
+        //Log.i(TAG, "onPostExecute " + response);
 
         // Check of er een response is
         if (response == null || response == "") {
@@ -108,7 +108,7 @@ public class MovieReviewListAsyncTask extends AsyncTask<String, Void, String> {
                 String content = object.getString("content");
                 String id = object.getString("id");
 
-                Log.i(TAG, "Got review " + id);
+                //Log.i(TAG, "Got review " + id);
 
                 // Create new Review object
                 Review review = new MovieReview();

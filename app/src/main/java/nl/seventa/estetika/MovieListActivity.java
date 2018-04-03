@@ -143,4 +143,11 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
         movies = (ArrayList<Movie>) savedInstanceState.getSerializable(MOVIES_INSTANCE);
         Log.i(TAG, "Saved instance restored");
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
 }

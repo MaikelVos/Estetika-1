@@ -118,14 +118,6 @@ public class SeatAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(final RecyclerView.ViewHolder viewHolder, final int position) {
         int type = mItems.get(position).getType();
 
-//        for (i = 0; i < cursor.getCount(); i++) {
-//
-//        //Log.i(TAG, test.toString());
-//        cursor.moveToPosition(0);
-//
-//        Integer test = (cursor.getColumnIndex(DB_SEAT_NUMBER));
-//
-//        System.out.println(test);
 
 
         if (taken.contains(position)){
@@ -145,8 +137,6 @@ public class SeatAdapter extends SelectableAdapter<RecyclerView.ViewHolder> {
             }
          else {
 
-
-//      here the onclick gets removed for the seats that are reserved needs async database implementation!, for each value in database
 
 
 //          setting onclick listener per seat
