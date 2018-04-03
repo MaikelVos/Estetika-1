@@ -26,14 +26,15 @@ import nl.seventa.estetika.domain.Movie;
 public class OrderActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getSimpleName();
-    private final List<String> payMethods = Arrays.asList("iDeal", "PayPal", "CreditCard");
+    private final List<String> PAY_METHODS = Arrays.asList("iDeal", "PayPal", "CreditCard");
     private Integer movieId;
     private ArrayList<Integer> selectedSeats;
-    private TextView titleTV;
+
     private ListView ticketList;
     private TextView ticketsRegularTV;
     private TextView ticketsReductionTV;
     private TextView ticketsChildsTV;
+    private TextView titleTV;
     private TextView totalPriceTV;
     private EditText emailET;
     private Spinner methodSpinner;
@@ -93,7 +94,7 @@ public class OrderActivity extends AppCompatActivity {
 
         this.methodSpinner = findViewById(R.id.spinnerMethod);
         ArrayAdapter<String> payMethodAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item);
-        payMethodAdapter.addAll(this.payMethods);
+        payMethodAdapter.addAll(this.PAY_METHODS);
         this.methodSpinner.setAdapter(payMethodAdapter);
     }
 

@@ -8,12 +8,14 @@ import android.widget.Button;
 
 public class CinemaReviewListActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button createReview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cinema_review_list);
 
-        Button createReview = findViewById(R.id.cinemaReviewCreateReviewButton);
+        createReview = findViewById(R.id.cinemaReviewCreateReviewButton);
         createReview.setOnClickListener(this);
     }
 
