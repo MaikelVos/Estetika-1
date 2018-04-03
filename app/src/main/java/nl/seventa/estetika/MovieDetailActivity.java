@@ -18,6 +18,7 @@ import nl.seventa.estetika.domain.Movie;
 public class MovieDetailActivity extends AppCompatActivity implements MovieListener {
     private final String TAG = this.getClass().getSimpleName();
     private int id;
+    private String MovieName;
     private String pegi;
 
     private ImageView image;
@@ -30,6 +31,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
     private Button ticketButton;
 
     public static final String ID_INSTANCE = "Id";
+    public static final String MOVIE_NAME = "MovieName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         id = bundle.getInt(ID_INSTANCE);
+        MovieName = bundle.getString(MOVIE_NAME);
+
 
 
         image = findViewById(R.id.movieDetailImageView);
@@ -64,6 +68,7 @@ public class MovieDetailActivity extends AppCompatActivity implements MovieListe
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SeatSelectActivity.class);
+                intent.putExtra(MOVIE_NAME, MovieName);
                 intent.putExtra(ID_INSTANCE, id);
                 startActivity(intent);
             }

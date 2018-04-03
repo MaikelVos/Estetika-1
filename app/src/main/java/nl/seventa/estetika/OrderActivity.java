@@ -20,7 +20,7 @@ import nl.seventa.estetika.async.MovieAsyncTask;
 import nl.seventa.estetika.async.MovieListener;
 import nl.seventa.estetika.domain.Movie;
 
-public class OrderActivity extends AppCompatActivity implements MovieListener {
+public class OrderActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getSimpleName();
     private Integer movieId;
@@ -41,6 +41,7 @@ public class OrderActivity extends AppCompatActivity implements MovieListener {
 
         Bundle extras = getIntent().getExtras();
         this.movieId = (Integer) extras.getSerializable("MOVIEID");
+        this.movieTitle = (String) extras.getSerializable("MOVIENAME");
         this.selectedSeats = (ArrayList<Integer>) extras.getSerializable("SEATS");
 
         this.titleTV = findViewById(R.id.OrderTitle);
@@ -83,16 +84,9 @@ public class OrderActivity extends AppCompatActivity implements MovieListener {
     }
 
     private void getMovie() {
-        String filter = getResources().getString(R.string.language_filter);
-        String url = "http://api.themoviedb.org/3/movie/" + movieId + "?api_key=a50da447e13e19ad7c800e66c94868e7&language=" + filter;
-        MovieAsyncTask task = new MovieAsyncTask(this);
-        task.execute(url);
-    }
-
-    @Override
-    public void onMovieListener(Movie movie) {
         Log.i(TAG, "Got movie: " + movieId + " from API");
-        movieTitle = movie.getTitle();
+        //movieTitle = movie.getTitle();
         this.titleTV.setText(this.titleTV.getText() + " " + movieTitle);
     }
+
 }
