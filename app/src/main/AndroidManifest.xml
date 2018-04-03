@@ -27,7 +27,7 @@
         <activity
             android:name=".MovieDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
-        <activity android:name=".MovieDetailReviewActivity" />
+        <activity android:name=".MovieReviewListActivity" />
         <activity android:name=".ContactActivity" />
         <activity
             android:name=".SeatSelectActivity"

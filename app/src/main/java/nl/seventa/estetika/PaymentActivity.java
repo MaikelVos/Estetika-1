@@ -3,6 +3,7 @@ package nl.seventa.estetika;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DATABASE_NAME;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_EMAIL;
+import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_INDEX;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_ID;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_MOVIE_NAME;
 import static nl.seventa.estetika.domain.seatSelect.Reserved_db.DB_SEAT_NUMBER;
@@ -29,6 +31,8 @@ public class PaymentActivity extends AppCompatActivity {
     private Button btnSucceed;
     private Button btnFail;
     private Context mcontext;
+    private ArrayList Array = new ArrayList();
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +82,7 @@ public class PaymentActivity extends AppCompatActivity {
 
                 //DAARNA MOET ER EEN DETAILVIEW VAN DE TICKET GE OPEND WORDEN
                 Toast.makeText(PaymentActivity.super.getApplicationContext(), getResources().getString(R.string.paySucceed), Toast.LENGTH_LONG).show();
-
+                
                 Intent intent = new Intent(getApplicationContext(), MovieDetailActivity.class);
                 intent.putExtra(MovieDetailActivity.MOVIE_NAME, movieTitle);
                 intent.putExtra(MovieDetailActivity.ID_INSTANCE, movieId);
