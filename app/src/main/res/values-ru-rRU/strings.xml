@@ -17,4 +17,5 @@
     <string name="contact_name">Кинотеатр Эстетика</string>
     <string name="address_country">Нидерланды</string>
     <string name="reviews">Рецензии</string>
+    <string name="buyticket_description">Заказать Билеты</string>
 </resources>
