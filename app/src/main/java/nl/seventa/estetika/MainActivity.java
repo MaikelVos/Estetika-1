@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         this.mainTicketsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(), );
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), TicketListActivity.class);
+                startActivity(intent);
             }
         });
     }
