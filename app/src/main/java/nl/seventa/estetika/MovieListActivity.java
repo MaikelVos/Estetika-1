@@ -38,7 +38,6 @@ public class MovieListActivity extends AppCompatActivity implements MovieListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_list);
-
 //Checks if there is a saved instance state and if it contains a movies array
         if (savedInstanceState != null && savedInstanceState.getSerializable(MOVIES_INSTANCE) != null) {
             movies = (ArrayList<Movie>) savedInstanceState.getSerializable(MOVIES_INSTANCE);
