@@ -95,7 +95,7 @@ public class SeatSelectActivity extends AppCompatActivity implements OnSeatSelec
             }
 
 
-        db.close();
+        
         }
 
 
