@@ -1,6 +1,5 @@
 package nl.seventa.estetika;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,8 +25,8 @@ import static nl.seventa.estetika.datalayer.Reserved_db.DB_MOVIE_ID;
 
 public class TicketListActivity extends AppCompatActivity implements MovieListener {
     private final String TAG = this.getClass().getSimpleName();
+
     private ArrayList<Integer> movieIDs = new ArrayList<>();
-    private Context mcontext;
     private ListView moviesLV;
     private EditText emailET;
     private TicketAdapter ticketAdapter;
@@ -39,22 +38,14 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_tickets);
-        this.mcontext = this;
+
         this.moviesLV = findViewById(R.id.moviesLV);
         this.emailET = findViewById(R.id.emailET);
 
-
-
-        ticketAdapter = new TicketAdapter(this, 0, movies);
-        this.moviesLV.setAdapter(ticketAdapter);
-
-
-        Log.i(TAG, "test 3");
         this.emailET.setOnKeyListener(new View.OnKeyListener() {
 
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                Log.i(TAG, "test 4");
 
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
@@ -69,6 +60,9 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
 
             }
         });
+
+        ticketAdapter = new TicketAdapter(this, 0, movies);
+        this.moviesLV.setAdapter(ticketAdapter);
 
         moviesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,7 +79,7 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
 
     private void getMovies (String email){
         movieIDs.clear();
-        SQLiteDatabase db = SQLiteDatabase.openDatabase(mcontext.getDatabasePath("reservations").getPath(),
+        SQLiteDatabase db = SQLiteDatabase.openDatabase(this.getDatabasePath("reservations").getPath(),
                 null,
                 SQLiteDatabase.OPEN_READWRITE);
 
@@ -112,16 +106,14 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
         MovieListAsyncTask task = new MovieListAsyncTask(this);
         Log.i(TAG, filter);
         task.execute(url);
-
-
     }
+
     @Override
     public void onMovieListener (Movie movie) {
         if (movieIDs.contains(movie.getMovieId())) {
             movies.add(movie);
             ticketAdapter.notifyDataSetChanged();
             Log.i(TAG, "Dataset changed");
-        } else {
-        }
+        } else {}
     }
 }
