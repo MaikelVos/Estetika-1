@@ -25,23 +25,22 @@
     <string name="address_postal_city" translatable="false">4818AJ Breda</string>
     <string name="reviews">Reviews</string>
     <string name="buyticket_description">Order Tickets</string>
-    <string name="OrderActivity_TicketsFor">Tickets For</string>
+    <string name="OrderActivity_TicketsFor">Tickets for</string>
     <string name="OrderActivity_TotalPrice">Total: €</string>
-    <string name="OrderActivity_ticketsRegular">"Regular Tickets: "</string>
-    <string name="OrderActivity_ticketsRecuction">"Reduction Tickets: "</string>
-    <string name="OrderActivity_ticketsChilds">"Children Tickets (under 12): "</string>
+    <string name="OrderActivity_ticketsRegular">"Regular tickets: "</string>
+    <string name="OrderActivity_ticketsRecuction">"Tickets with discount: "</string>
+    <string name="OrderActivity_ticketsChilds">"Children's tickets (under 12): "</string>
     <string name="OrderActivity_placeOrder">Place Order</string>
     <string name="OrderActivity_seat">Seat: </string>
-    <string name="SucceedPay">Succeed Payment</string>
-    <string name="FailPay">Fail Payment</string>
+    <string name="SucceedPay">Make Payment Succeed</string>
+    <string name="FailPay">Make Payment Fail</string>
     <string name="payFailTryAgain">Payment Failed, Please Try Again</string>
     <string name="paySucceed">Payment Succeeded</string>
-    <string name="cinema_create_review">Create Review</string>
-    <string name="cinema_create_review_email">E-mail:</string>
-    <string name="cinema_create_review_review">Your Review:</string>
+    <string name="cinema_create_review">Write Review</string>
+    <string name="email">E-mail:</string>
+    <string name="cinema_create_review_review">Your Feedback:</string>
     <string name="cinema_create_review_submit">Submit</string>
-    <string name="cinema_create_review_submit_message">Your review has been submitted</string>
-    <string name="inputEmail">Email Address</string>
-    <string name="ticketsFor">"Tickets for: "</string>
+    <string name="cinema_create_review_submit_message">Your feedback has been submitted</string>
+    <string name="ticketsFor">"Tickets for:"</string>
     <string name="noSeatSelected">No Seat Selected!</string>
 </resources>

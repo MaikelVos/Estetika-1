@@ -59,7 +59,7 @@
         android:layout_marginStart="8dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="@string/inputEmail"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/placeOrderBtn"
         app:layout_constraintEnd_toEndOf="parent"
