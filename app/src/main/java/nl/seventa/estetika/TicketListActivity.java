@@ -34,6 +34,7 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
     private ArrayList<Movie> movies;
     private String email;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
 
         this.emailET.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
+
                 // If the event is a key-down event on the "enter" button
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
@@ -56,24 +58,40 @@ public class TicketListActivity extends AppCompatActivity implements MovieListen
                     return true;
                 }
                 return false;
+
             }
         });
 
-        moviesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), TicketDetailActivity.class);
-                Log.i(TAG, "Movie: " + movies.get(position));
-                i.putExtra("MOVIE", movies.get(position));
-                i.putExtra("EMAIL", email);
-                startActivity(i);
-            }
-        });
+
+
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(getApplicationContext(), MovieDetailActivity.class);
+//                intent.putExtra(MovieDetailActivity.MOVIE_NAME, movies.get(i).getTitle());
+//                intent.putExtra(MovieDetailActivity.ID_INSTANCE, movies.get(i).getMovieId());
+//                startActivity(intent);
+//            }
+//        });
+
+
 
         movieAdapter = new MovieAdapter(this, 0, movies);
         this.moviesLV.setAdapter(movieAdapter);
 
-        
+//        moviesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent i = new Intent(getApplicationContext(), TicketDetailActivity.class);
+//
+//                Log.i(TAG, "Movie: " + movies.get(position));
+//                i.putExtra("MOVIE", movies.get(position));
+//                i.putExtra("EMAIL", email);
+//                startActivity(i);
+//
+//            }
+//        });
     }
 
     private void getMovies(String email) {
